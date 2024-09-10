@@ -1,0 +1,7 @@
+{
+  "name": "SmartPAY",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
