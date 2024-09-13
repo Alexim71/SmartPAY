@@ -1,0 +1,94 @@
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Centre le texte horizontalement */
+  }
+  
+  .welcome-text {
+    font-size: 24px; /* Taille de la police pour "WELCOME" */
+    font-weight: bold; /* Met le texte "WELCOME" en gras */
+    margin-bottom: 5px; /* Espace entre les lignes de texte */
+    color: #333; /* Couleur du texte "WELCOME" (modifiable selon tes préférences) */
+  }
+
+  .Need-help-text {
+    font-size: 14px; /* Taille de la police pour "WELCOME" */
+    font-weight: bold; /* Met le texte "WELCOME" en gras */
+    margin-bottom: 5px; /* Espace entre les lignes de texte */
+    color: #54bd80; /* Couleur du texte "WELCOME" (modifiable selon tes préférences) */
+  }
+  
+  .welcome-subtext {
+    font-size: 18px; /* Taille de la police pour "Glad to see you!" */
+    font-weight: normal; /* Police normale (non grasse) pour "Glad to see you!" */
+    color: #666; /* Couleur plus claire pour réduire l'intensité du texte */
+    margin-bottom: 20px; /* Espace en dessous du texte de bienvenue */
+  }
+
+  .login-divider p {
+    font-size: 14px;
+    color: #888;
+    margin: 20px 0;
+  }
+
+  .social-login-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espace entre les boutons */
+    margin-bottom: 20px;
+  }
+  
+  .social-login-buttons ion-button {
+    width: 45%; /* Ajuste la largeur des boutons pour qu'ils soient plus grands */
+    font-size: 12px; /* Agrandit le texte des boutons */
+    border-radius: 20px; /* Ajoute un arrondi aux coins des boutons */
+    font-weight: bold; /* Met le texte en gras pour plus de visibilité */
+    --background: transparent; /* Assure que la couleur de fond par défaut est transparente */
+  }
+  
+  .social-login-buttons ion-button.google-button {
+    --background: #4285F4; /* Couleur de fond pour le bouton Google */
+    --color: #fff; /* Couleur du texte pour le bouton Google */
+  }
+  
+  .social-login-buttons ion-button.facebook-button {
+    --background: #3b5998; /* Couleur de fond pour le bouton Facebook */
+    --color: #fff; /* Couleur du texte pour le bouton Facebook */
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: right;
+  }
+  
+  .footer a {
+    color: #007bff; /* Couleur du lien, change selon ton design */
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  ion-icon {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  ion-icon.hidden {
+    display: none;
+  }
+  
+  
+  
+  
