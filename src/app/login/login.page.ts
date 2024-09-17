@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class LoginPage {
   password: string = '';
   passwordFieldType: string = 'password'; // Default to 'password'
+  
   constructor(private router: Router) {}
 
   onLogin() {

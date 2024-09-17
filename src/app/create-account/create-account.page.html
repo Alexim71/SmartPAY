@@ -1,31 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Créer un compte</ion-title>
+    <ion-title>SMARTPAY</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="createAccountForm" (ngSubmit)="onSubmit()">
-    <ion-item>
-      <ion-label position="floating">Nom d'utilisateur</ion-label>
-      <ion-input formControlName="username" type="text" required></ion-input>
-    </ion-item>
+  <div class="create-account-container">
+    <h2 class="header-text">Create Account</h2>
+    <p class="sub-header-text">Join us to access exclusive content!</p>
 
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" type="email" required></ion-input>
-    </ion-item>
+    <form (submit)="onCreateAccount()">
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email address</ion-label>
+        <ion-input type="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">First name</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Last name</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">City/town</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Country</ion-label>
+        <ion-select [(ngModel)]="selectedCountry" placeholder="Select Country" required>
+          <ion-select-option *ngFor="let country of countries" [value]="country">
+            {{ country }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Mot de passe</ion-label>
-      <ion-input formControlName="password" type="password" required></ion-input>
-    </ion-item>
+      <ion-item lines="none" class="terms">
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>I agree to the <a href="#">Terms & Conditions</a></ion-label>
+      </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Confirmer le mot de passe</ion-label>
-      <ion-input formControlName="confirmPassword" type="password" required></ion-input>
-    </ion-item>
+      <ion-button expand="full" expand="full" type="submit">Sign Up</ion-button>
 
-    <ion-button expand="full" type="submit" [disabled]="!createAccountForm.valid" color="primary">Créer un compte</ion-button>
-  </form>
+      <ion-button expand="full" fill="outline"  (click)="goToLogin()"  >Already have an account? Log In</ion-button>
+    </form>
+  </div>
 </ion-content>
