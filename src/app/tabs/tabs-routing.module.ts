@@ -23,7 +23,22 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
-      }
+      },
+      {
+        path: 'messages',
+        loadChildren: () =>
+          import('../messages/messages.module').then((m) => m.MessagesPageModule),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('../settings/settings.module').then((m) => m.SettingsPageModule),
+      },
+      {
+        path: 'notifications',
+        loadChildren: () =>
+          import('../notifications/notifications.module').then( (m) => m.NotificationsPageModule ),   
+      },
     ]
   }
 ];

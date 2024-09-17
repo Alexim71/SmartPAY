@@ -1,0 +1,36 @@
+ion-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  ion-button {
+    --padding: 0;
+    --margin: 0;
+  }
+  
+  ion-icon {
+    font-size: 24px;
+  }
+
+  .custom-action-sheet {
+  --action-sheet-background: #fff;
+  --action-sheet-border-radius: 16px;
+
+  .action-sheet-wrapper {
+    position: absolute;
+    left: 0; /* Positionner à gauche */
+    top: 0; /* Aligner au sommet */
+    bottom: 0; /* Aligner au bas */
+    width: 250px; /* Ajuster la largeur selon vos besoins */
+    margin: 0;
+    transform: translateX(0); /* Assurer qu'il n'y a pas de décalage */
+  }
+
+  .action-sheet-group {
+    .action-sheet-button {
+      text-align: left; /* Aligner le texte à gauche */
+    }
+  }
+}
+
+  
