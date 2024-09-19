@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter Activities</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="selectedFilter">
+      <ion-list-header>
+        <ion-label>Select a Filter</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Overdue</ion-label>
+        <ion-radio value="overdue"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Due Date</ion-label>
+        <ion-radio value="due-date"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Next 7 Days</ion-label>
+        <ion-radio value="next-7-days"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Next 30 Days</ion-label>
+        <ion-radio value="next-30-days"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Next 3 Months</ion-label>
+        <ion-radio value="next-3-months"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Next 6 Months</ion-label>
+        <ion-radio value="next-6-months"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="applyFilter()">Apply Filter</ion-button>
+  </ion-footer>
+</ion-content>

@@ -3,9 +3,22 @@
     <ion-card-title>Timeline</ion-card-title>
     <ion-toolbar>
       <ion-buttons slot="start">
+<!-- <<<<<<< HEAD
         <ion-button fill="clear" (click)="toggleSort()">
           <ion-icon name="sort-outline"></ion-icon>
         </ion-button>
+======= -->
+         <!-- Menu déroulant pour le tri -->
+         <ion-item>
+          <ion-label>Sort by</ion-label>
+          <ion-select [(ngModel)]="selectedSort" (ionChange)="sortActivities()">
+            <ion-select-option value="date-asc">Date (Ascending)</ion-select-option>
+            <ion-select-option value="date-desc">Date (Descending)</ion-select-option>
+            <ion-select-option value="name-asc">Name (A-Z)</ion-select-option>
+            <ion-select-option value="name-desc">Name (Z-A)</ion-select-option>
+          </ion-select>
+        </ion-item>
+
       </ion-buttons>
       <ion-buttons slot="end">
         <ion-button fill="clear" (click)="toggleFilter()">
