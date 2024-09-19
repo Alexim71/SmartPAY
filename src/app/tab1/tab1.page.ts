@@ -7,80 +7,74 @@ import { NavController, ActionSheetController , MenuController   } from '@ionic/
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor(private navCtrl: NavController, private actionSheetController: ActionSheetController, private menu: MenuController) {}
-  openSettings() {
-    // Logique pour ouvrir la page des paramètres
-    // this.navCtrl.navigateForward('/settings');
-  }
-
-  onProfileClick() {
-    // Logic to handle profile icon click
-    console.log('Profile icon clicked');
-  }
-
-  async presentActionSheet() {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'More Options',
-      cssClass: 'custom-action-sheet',
-      buttons: [
-        {
-          text: 'Profile',
-          icon: 'person',
-          handler: () => {
-            console.log('Profile clicked');
-            // Navigate to profile page or perform action
-          }
-        },
-        {
-          text: 'Settings',
-          icon: 'settings',
-          handler: () => {
-            console.log('Settings clicked');
-            // Navigate to settings page or perform action
-          }
-        },
-        {
-          text: 'Notifications',
-          icon: 'notifications',
-          handler: () => {
-            console.log('Notifications clicked');
-            // Navigate to notifications page or perform action
-          }
-        },
-        {
-          text: 'Help',
-          icon: 'help-circle',
-          handler: () => {
-            console.log('Help clicked');
-            // Navigate to help page or perform action
-          }
-        },
-        {
-          text: 'Log Out',
-          icon: 'log-out',
-          // color: 'danger',
-          handler: () => {
-            console.log('Log Out clicked');
-            // Handle logout
-          }
-        },
-        {
-          text: 'Cancel',
-          icon: 'close',
-          role: 'cancel',
-          handler: () => {
-            console.log('Action cancelled');
-          }
-        }
-      ]
-    });
-    await actionSheet.present();
-  }
   
+  searchQuery: string = ''; // Chaîne de recherche pour la recherche d'activités
+  selectedFilter: string = ''; // Filtre sélectionné
+  activities: any[] = [
+    { id: 1, name: 'Activity 1', date: new Date('2024-09-10'), type: 'Meeting' },
+    { id: 2, name: 'Activity 2', date: new Date('2024-09-15'), type: 'Task' },
+    { id: 3, name: 'Activity 3', date: new Date('2024-09-20'), type: 'Event' },
+    // Ajoutez d'autres activités ici
+  ];
+  filteredActivities: any[] = [...this.activities]; // Activités filtrées à afficher
 
-  openMenu() {
-    this.menu.open(); // Ouvre le menu
+  constructor() {}
+
+  // Méthode pour filtrer les activités en fonction de la recherche et du filtre
+  filterActivities() {
+    // Filtrer par chaîne de recherche
+    this.filteredActivities = this.activities.filter(activity => {
+      const matchesNameOrType = activity.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                                activity.type.toLowerCase().includes(this.searchQuery.toLowerCase());
+
+      // Ajouter la logique de filtrage basée sur `selectedFilter` si nécessaire
+      return matchesNameOrType && this.applyDateFilter(activity);
+    });
+  }
+
+  // Méthode pour filtrer par date selon le filtre sélectionné
+  applyDateFilter(activity: any): boolean {
+    if (!this.selectedFilter) {
+      return true; // Pas de filtre appliqué
+    }
+
+    const today = new Date();
+    const activityDate = new Date(activity.date);
+
+    switch (this.selectedFilter) {
+      case 'overdue':
+        return activityDate < today;
+      case 'due-date':
+        return activityDate.toDateString() === today.toDateString();
+      case 'next-7-days':
+        return this.isWithinNextDays(activityDate, 7);
+      case 'next-30-days':
+        return this.isWithinNextDays(activityDate, 30);
+      case 'next-3-months':
+        return this.isWithinNextDays(activityDate, 90);
+      case 'next-6-months':
+        return this.isWithinNextDays(activityDate, 180);
+      default:
+        return true;
+    }
+  }
+
+  // Vérifier si une activité est dans les X prochains jours
+  isWithinNextDays(activityDate: Date, days: number): boolean {
+    const today = new Date();
+    const targetDate = new Date();
+    targetDate.setDate(today.getDate() + days);
+    return activityDate >= today && activityDate <= targetDate;
+  }
+
+  // Méthode pour activer le tri des activités (à implémenter)
+  toggleSort() {
+    // Ajoutez la logique de tri ici si nécessaire
+  }
+
+  // Méthode pour activer/désactiver les filtres (à implémenter)
+  toggleFilter() {
+    // Ajoutez la logique de filtre ici si nécessaire
   }
 
 }

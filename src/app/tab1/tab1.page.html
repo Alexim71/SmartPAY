@@ -1,33 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <!-- <ion-buttons slot="start">
-      <ion-button (click)="onProfileClick()">
-        <ion-icon name="person-circle" slot="icon-only"></ion-icon>
-      </ion-button>
-    </ion-buttons> -->
-
-    <ion-buttons slot="start">
-      <ion-button (click)="openMenu()">
-        <ion-icon name="person-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-    <ion-title>
-      Dashboard
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="presentActionSheet()">
-        <ion-icon name="ellipsis-vertical"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Timeline</ion-card-title>
     <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
+      <ion-buttons slot="start">
+        <ion-button fill="clear" (click)="toggleSort()">
+          <ion-icon name="sort-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="toggleFilter()">
+          <ion-icon name="filter-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
-  </ion-header>
+  </ion-card-header>
 
-</ion-content>
+  <ion-card-content>
+    <ion-item>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-input placeholder="Search by activity type or name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [(ngModel)]="selectedFilter" placeholder="Filter by" (ionChange)="filterActivities()">
+        <ion-select-option value="overdue">Overdue</ion-select-option>
+        <ion-select-option value="due-date">Due Date</ion-select-option>
+        <ion-select-option value="next-7-days">Next 7 Days</ion-select-option>
+        <ion-select-option value="next-30-days">Next 30 Days</ion-select-option>
+        <ion-select-option value="next-3-months">Next 3 Months</ion-select-option>
+        <ion-select-option value="next-6-months">Next 6 Months</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Display filtered activities -->
+    <ion-list>
+      <ion-item *ngFor="let activity of filteredActivities">
+        <ion-label>
+          <h2>{{ activity.name }}</h2>
+          <p>{{ activity.date | date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private menu: MenuController) {}
+
+  openPage(page: string) {
+    console.log('Navigating to page:', page);
+    // Ajouter la logique pour la navigation de page
+  }
+
+  closeMenu() {
+    this.menu.close();
+  }
 }
