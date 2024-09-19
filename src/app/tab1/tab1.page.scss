@@ -1,0 +1,26 @@
+/* timeline-card.component.scss */
+ion-card {
+  margin: 16px;
+  padding: 16px;
+}
+
+ion-card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+ion-item {
+  margin-bottom: 12px;
+}
+
+ion-input {
+  --padding-start: 0;
+}
+
+ion-button {
+  --padding-start: 0;
+}
+
+ion-select {
+  --padding: 0;
+}

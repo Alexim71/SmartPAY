@@ -1,0 +1,55 @@
+.create-account-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.header-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+.sub-header-text {
+  font-size: 16px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+ion-item {
+  margin-bottom: 20px;
+}
+
+.terms {
+  margin-bottom: 20px;
+}
+
+ion-button {
+  margin-top: 20px;
+}
+
+.social-login-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espace entre les boutons */
+  margin-bottom: 20px;
+}
+
+.social-login-buttons ion-button {
+  width: 45%; /* Ajuste la largeur des boutons pour qu'ils soient plus grands */
+  font-size: 12px; /* Agrandit le texte des boutons */
+  border-radius: 20px; /* Ajoute un arrondi aux coins des boutons */
+  font-weight: bold; /* Met le texte en gras pour plus de visibilité */
+  --background: transparent; /* Assure que la couleur de fond par défaut est transparente */
+}
+
+.social-login-buttons ion-button.google-button {
+  --background: #4285F4; /* Couleur de fond pour le bouton Google */
+  --color: #fff; /* Couleur du texte pour le bouton Google */
+}
+
+.social-login-buttons ion-button.facebook-button {
+  --background: #3b5998; /* Couleur de fond pour le bouton Facebook */
+  --color: #fff; /* Couleur du texte pour le bouton Facebook */
+}
+

@@ -1,0 +1,20 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Profil</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeMenu()">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!-- Placez ici les informations du profil -->
+    <ion-list>
+      <ion-item>Nom: John Doe</ion-item>
+      <ion-item>Email: john.doe&#64;example.com</ion-item>
+      <!-- Ajoutez d'autres informations de profil ici -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>

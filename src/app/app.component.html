@@ -1,0 +1,18 @@
+<ion-app>
+  <ion-menu side="start" menuId="mainMenu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button (click)="openPage('tab1')">tab1</ion-item>
+        <ion-item button (click)="openPage('tab2')">tab2</ion-item>
+        <ion-item button (click)="openPage('notifications')">notifications</ion-item>
+        <ion-item button (click)="closeMenu()">Close Menu</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>

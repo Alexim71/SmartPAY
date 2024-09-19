@@ -1,0 +1,16 @@
+
+ion-tab-bar {
+    --ion-safe-area-bottom: 0px;
+  
+    ion-tab-button {
+      min-width: 80px; /* Adjust for better display */
+      font-size: 14px; /* Ensure text is readable */
+    }
+  
+    @media (max-width: 360px) {
+      ion-tab-button {
+        min-width: 60px; /* Adjust for smaller screens */
+      }
+    }
+  }
+  
