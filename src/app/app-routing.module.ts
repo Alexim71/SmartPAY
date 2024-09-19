@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule) },
   { path: 'create-account', loadChildren: () => import('./create-account/create-account.module').then(m => m.CreateAccountPageModule) },
-  { path: 'tabs', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) },  {
+  { path: 'tabs', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) },
+  {
     path: 'notifications',
     loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
@@ -17,11 +18,8 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
-  {
-    path: 'profil-menu',
-    loadChildren: () => import('./profil-menu/profil-menu.module').then( m => m.ProfilMenuPageModule)
-  }
-
+  
+ 
 ];
 @NgModule({
   imports: [

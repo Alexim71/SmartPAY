@@ -24,3 +24,20 @@ ion-button {
 ion-select {
   --padding: 0;
 }
+.logout-button {
+  --background: #aad1fe; /* Bleu ciel */
+  --color: white; /* Texte blanc */
+  --border-radius: 0px; /* Coins arrondis */
+  --padding-start: 16px; /* Espacement à gauche */
+  --padding-end: 16px; /* Espacement à droite */
+  --margin-top: 32px; /* Pour pousser le bouton vers le bas */
+  --margin-bottom: 0px; /* Espacement en bas */
+}
+
+.logout-button ion-icon {
+  color: white; /* Icône en blanc */
+}
+
+ion-footer {
+  padding: 0; /* Retirer le padding du footer */
+}
