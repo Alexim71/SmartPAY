@@ -18,6 +18,7 @@ export class Tab1Page {
   selectedSort: string = 'date-asc'; // Tri par défaut : Date croissante
   sortBy: string = 'date'; // Par défaut, trier par date
   showFilter: boolean = false;
+  selectedDate: string = '';  // Stocker la date sélectionnée
 
   constructor(private navCtrl: NavController, private actionSheetController: ActionSheetController, private menu: MenuController) {}
 
@@ -279,6 +280,14 @@ export class Tab1Page {
   }
 
 
-
+ // Fonction pour afficher les événements selon la date sélectionnée
+ viewEvents() {
+  if (this.selectedDate) {
+    console.log(`Viewing events for: ${this.selectedDate}`);
+    // Logique pour afficher les événements à cette date
+  } else {
+    console.log('Please select a date.');
+  }
+}
 
 }

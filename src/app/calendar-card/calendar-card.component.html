@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Calendar</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>
+        <h2>Manage Your Events</h2>
+        <p>Select a date to view events.</p>
+      </ion-label>
+    </ion-item>
+
+    <!-- Calendar using ion-datetime -->
+    <ion-item>
+      <ion-datetime presentation="date" [(ngModel)]="selectedDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Selected Date: {{ selectedDate | date }}</ion-label>
+    </ion-item>
+
+    <!-- Actions for the Calendar -->
+    <ion-button expand="block" (click)="viewEvents()">
+      View Events for Selected Date
+    </ion-button>
+
+  </ion-card-content>
+</ion-card>
