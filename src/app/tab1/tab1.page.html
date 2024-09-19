@@ -1,3 +1,23 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+  
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      Dashboard
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentActionSheet()">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-card>
   <ion-card-header>
     <ion-card-title>Timeline</ion-card-title>
@@ -10,7 +30,7 @@
 ======= -->
          <!-- Menu déroulant pour le tri -->
          <ion-item>
-          <ion-label>Sort by</ion-label>
+          <ion-label>Sort</ion-label>
           <ion-select [(ngModel)]="selectedSort" (ionChange)="sortActivities()">
             <ion-select-option value="date-asc">Date (Ascending)</ion-select-option>
             <ion-select-option value="date-desc">Date (Descending)</ion-select-option>
@@ -56,3 +76,102 @@
     </ion-list>
   </ion-card-content>
 </ion-card>
+
+<ion-menu side="start" menuId="profileMenu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="closeMenu()">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>User account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <!-- Informations de l'utilisateur -->
+      <ion-item button>
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>Username</h2>
+          <p style="color: #3498db;">email&#64;example.com</p>
+        </ion-label>
+      </ion-item>
+      
+      <!-- Gestion du compte -->
+      <ion-item button>
+        <ion-icon name="key-outline" slot="start"></ion-icon>
+        Change Password
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="shield-outline" slot="start"></ion-icon>
+        Two-Factor Authentication
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="wallet-outline" slot="start"></ion-icon>
+        Payment Information
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="time-outline" slot="start"></ion-icon>
+        Transaction History
+      </ion-item>
+      
+      <!-- Paramètres -->
+      <ion-item button>
+        <ion-icon name="notifications-outline" slot="start"></ion-icon>
+        Notification Settings
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        Security and Privacy
+      </ion-item>
+
+      <!-- Support -->
+      <ion-item button>
+        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+        Help Center
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        Contact Support
+      </ion-item>
+
+      <!-- Autres -->
+      <ion-item button>
+        <ion-icon name="language-outline" slot="start"></ion-icon>
+        Language and Currency
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="color-palette-outline" slot="start"></ion-icon>
+        Theme
+      </ion-item>
+
+      <!-- <ion-item button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        Se déconnecter
+      </ion-item> -->
+
+        <!-- Options de bas de page : Switch account et Logout -->
+        <ion-item button>
+          <ion-icon name="swap-horizontal-outline" slot="start"></ion-icon>
+          Switch Account
+        </ion-item>
+        <!-- <ion-item button (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          Se déconnecter
+        </ion-item> -->
+    </ion-list>
+
+     <!-- Bouton de déconnexion stylisé -->
+     <ion-footer class="ion-no-border">
+      <ion-item class="logout-button" button (click)="logout()">
+        <ion-icon style="color: #d41e36;" name="log-out-outline" slot="start"></ion-icon>
+        Log Out
+      </ion-item>
+    </ion-footer>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
