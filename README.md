@@ -1,2 +1,2 @@
 # SmartPAY
-App mobile for easy transactions/payements
+App mobile for easy transactions/payments
