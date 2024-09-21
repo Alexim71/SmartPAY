@@ -1,0 +1,12 @@
+/* Fichier CSS global ou du composant */
+
+.custom-popover-position .popover-content {
+    --min-width: 150px;
+    --max-width: 200px;
+    /* Désactivez le positionnement automatique */
+    position: absolute !important;
+    top: var(--popover-top);
+    left: var(--popover-left);
+    transform: none !important;
+  }
+  

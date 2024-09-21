@@ -1,6 +1,8 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>Calendar</ion-card-title>
+    <ion-card-title  style="color: #3498db;">
+      <ion-icon name="calendar-outline"></ion-icon>
+      Calendar</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <ion-item>
@@ -22,6 +24,11 @@
     <!-- Actions for the Calendar -->
     <ion-button expand="block" (click)="viewEvents()">
       View Events for Selected Date
+    </ion-button>
+    Or,
+     <!-- Actions for the Calendar -->
+     <ion-button expand="block" (click)="viewEvents()">
+      Create Events for Selected Date
     </ion-button>
 
   </ion-card-content>
