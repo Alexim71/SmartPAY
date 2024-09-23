@@ -40,6 +40,11 @@ const routes: Routes = [
           import('../notifications/notifications.module').then( (m) => m.NotificationsPageModule ),   
       },
     ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/tab1',
+    pathMatch: 'full'
   }
 ];
 
