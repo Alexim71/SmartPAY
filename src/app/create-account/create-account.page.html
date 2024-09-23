@@ -1,12 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>SMARTPAY</ion-title>
+    <ion-title>Create Account</ion-title>
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon slot="icon-only" name="help-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>  
+    <ion-buttons slot="end">
+      <ion-button >
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>  
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="create-account-container">
-    <h2 class="header-text">Create Account</h2>
+    <h2 class="header-text">SMARTPAY</h2>
     <p class="sub-header-text">Join us to access exclusive content!</p>
 
     <form (submit)="onCreateAccount()">

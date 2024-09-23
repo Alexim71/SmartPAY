@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>SMARTPAY</ion-title>
+    <ion-title>Login</ion-title>
     <ion-buttons slot="end">
       <ion-button >
         <ion-icon slot="icon-only" name="help-circle"></ion-icon>
@@ -17,44 +17,41 @@
 
 <ion-content class="ion-padding center-content">
   <div class="login-container">
-    <h2 class="welcome-text">Welcome,</h2>
+    <h2 class="welcome-text">SMARTPAY</h2>
     <h3 class="welcome-subtext">Glad to see you!</h3>
     <form (submit)="onLogin()" class="login-form">
       <ion-item>
         <ion-label position="floating">Email / Username</ion-label>
-        <ion-input type="email" required></ion-input>
+        <ion-input [(ngModel)]="email" type="email" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
         <!-- <ion-input type="password" required></ion-input> -->
-        <ion-input [type]="passwordFieldType" [(ngModel)]="password" name="password" required>
+        <ion-input [(ngModel)]="password" [type]="passwordFieldType" name="password" required>
           <ion-icon name="eye" slot="end" (click)="togglePasswordVisibility()" [ngClass]="{'hidden': passwordFieldType === 'password'}"></ion-icon>
           <ion-icon name="eye-off" slot="end" (click)="togglePasswordVisibility()" [ngClass]="{'hidden': passwordFieldType === 'text'}"></ion-icon>
         </ion-input>
       </ion-item>
+       <!-- Message d'erreur -->
+       <ion-text color="danger" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </ion-text>
       <ion-button expand="full" type="submit">Login</ion-button>
     </form>
 
-    <ion-button expand="full" fill="outline" (click)="goToCreateAccount()">Create Account</ion-button>
+    <div >
+      <a href="#">Lost password?</a>
+    </div>
+
+    <p class="bold-text">Is this your first time here?</p>
+    For full access to this app, you first need to create an account.
+
+    <ion-button expand="full" fill="outline" class="create-account-button" (click)="goToCreateAccount()">Create Account</ion-button>
   </div>
   <div class="login-divider">
-    <p>Or Login with :</p>
+   
   </div>
 
-  <div class="social-login-buttons">
-    <ion-button class="google-button">
-      <ion-icon name="logo-google" slot="start"></ion-icon>
-      Google
-    </ion-button>
-    <ion-button class="facebook-button">
-      <ion-icon name="logo-facebook" slot="start"></ion-icon>
-      Facebook
-    </ion-button>
-  </div>
-  <a href="#" class="Need-help-text">Need help?</a>
-  <div class="footer">
-    <a href="#">Forgot Password?</a>
-  </div>
 </ion-content>
 
 
