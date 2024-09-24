@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>
+      Balance <ion-icon name="ellipsis-vertical" (click)="presentPopover($event); $event.stopPropagation();" ></ion-icon>
+    
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <h2>{{ balanceAmount | currency: 'USD': true }}</h2>
+    <p>Your current balance available.</p>
+  </ion-card-content>
+</ion-card>

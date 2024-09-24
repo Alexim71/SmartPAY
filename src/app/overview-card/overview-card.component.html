@@ -1,0 +1,24 @@
+<!-- src/app/overview-card/overview-card.component.html -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Overview</ion-card-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="ellipsis-horizontal"></ion-icon> <!-- More options icon -->
+      </ion-button>
+    </ion-buttons>
+  </ion-card-header>
+
+
+    <div>
+      <canvas baseChart
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend"
+       
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+
+</ion-card>

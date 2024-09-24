@@ -18,105 +18,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="main-content">     
-        <app-timeline></app-timeline>
-        <app-calendar-card></app-calendar-card>
+<ion-content id="main-content">  
+        <app-balance-card></app-balance-card>  
+        <app-transactions-card></app-transactions-card> 
+        <app-overview-card></app-overview-card>
+        <!-- <app-timeline></app-timeline> -->
+        <!-- <app-calendar-card></app-calendar-card> -->
 </ion-content>
 
-<ion-menu side="start" menuId="profileMenu" contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="closeMenu()">
-          <ion-icon name="close-outline"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title>User account</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<app-lateral-menu></app-lateral-menu>
 
-  <ion-content>
-    <ion-list>
-      <!-- Informations de l'utilisateur -->
-      <ion-item button>
-        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-        <ion-label>
-          <h2>Username</h2>
-          <p style="color: #3498db;">email&#64;example.com</p>
-        </ion-label>
-      </ion-item>
-      
-      <!-- Gestion du compte -->
-      <ion-item button>
-        <ion-icon name="key-outline" slot="start"></ion-icon>
-        Change Password
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="shield-outline" slot="start"></ion-icon>
-        Two-Factor Authentication
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="wallet-outline" slot="start"></ion-icon>
-        Payment Information
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="time-outline" slot="start"></ion-icon>
-        Transaction History
-      </ion-item>
-      
-      <!-- Paramètres -->
-      <ion-item button>
-        <ion-icon name="notifications-outline" slot="start"></ion-icon>
-        Notification Settings
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-        Security and Privacy
-      </ion-item>
 
-      <!-- Support -->
-      <ion-item button>
-        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
-        Help Center
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="mail-outline" slot="start"></ion-icon>
-        Contact Support
-      </ion-item>
-
-      <!-- Autres -->
-      <ion-item button>
-        <ion-icon name="language-outline" slot="start"></ion-icon>
-        Language and Currency
-      </ion-item>
-      <ion-item button>
-        <ion-icon name="color-palette-outline" slot="start"></ion-icon>
-        Theme
-      </ion-item>
-
-      <!-- <ion-item button (click)="logout()">
-        <ion-icon name="log-out-outline" slot="start"></ion-icon>
-        Se déconnecter
-      </ion-item> -->
-
-        <!-- Options de bas de page : Switch account et Logout -->
-        <ion-item button>
-          <ion-icon name="swap-horizontal-outline" slot="start"></ion-icon>
-          Switch Account
-        </ion-item>
-        <!-- <ion-item button (click)="logout()">
-          <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          Se déconnecter
-        </ion-item> -->
-    </ion-list>
-
-     <!-- Bouton de déconnexion stylisé -->
-     <ion-footer class="ion-no-border">
-      <ion-item class="logout-button" button (click)="logout()">
-        <ion-icon style="color: #d41e36;" name="log-out-outline" slot="start"></ion-icon>
-        Log Out
-      </ion-item>
-    </ion-footer>
-  </ion-content>
-</ion-menu>
 
