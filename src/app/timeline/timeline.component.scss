@@ -10,4 +10,14 @@
     font-size: 1.2em;
     text-transform: uppercase;
   }
+
+  .list-item {
+    transition: all 0.3s ease;
+  }
+  
+  .list-item-clicked {
+    background-color: #e0e0e0;
+    transform: scale(0.98);
+  }
+  
   
