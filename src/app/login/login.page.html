@@ -1,58 +1,58 @@
-<ion-header>
+<ion-header> 
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>SMARTPAY</ion-title>
     <ion-buttons slot="end">
-      <ion-button >
+      <ion-button>
         <ion-icon slot="icon-only" name="help-circle"></ion-icon>
       </ion-button>
     </ion-buttons>  
     <ion-buttons slot="end">
-      <ion-button >
+      <ion-button>
         <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
       </ion-button>
     </ion-buttons>  
   </ion-toolbar>
-  
 </ion-header>
 
 <ion-content class="ion-padding center-content">
   <div class="login-container">
-    <h2 class="welcome-text">SMARTPAY</h2>
+    <h2 class="welcome-text">Welcome,</h2>
     <h3 class="welcome-subtext">Glad to see you!</h3>
+    
     <form (submit)="onLogin()" class="login-form">
       <ion-item>
         <ion-label position="floating">Email / Username</ion-label>
+<<<<<<< HEAD
         <ion-input [(ngModel)]="email" name="email" type="email"  required></ion-input>
+=======
+        <ion-input  type="email" required></ion-input>
+>>>>>>> dfd17ebbd50117ba9a647c54b6f7aa2426b56217
       </ion-item>
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <!-- <ion-input type="password" required></ion-input> -->
         <ion-input [(ngModel)]="password" [type]="passwordFieldType" name="password" required>
           <ion-icon name="eye" slot="end" (click)="togglePasswordVisibility()" [ngClass]="{'hidden': passwordFieldType === 'password'}"></ion-icon>
           <ion-icon name="eye-off" slot="end" (click)="togglePasswordVisibility()" [ngClass]="{'hidden': passwordFieldType === 'text'}"></ion-icon>
         </ion-input>
       </ion-item>
-       <!-- Message d'erreur -->
-       <ion-text color="danger" *ngIf="errorMessage">
+
+      <!-- Message d'erreur -->
+      <ion-text color="danger" *ngIf="errorMessage">
         <p>{{ errorMessage }}</p>
       </ion-text>
+
       <ion-button expand="full" type="submit">Login</ion-button>
     </form>
 
-    <div >
+    <div>
       <a href="#">Lost password?</a>
     </div>
 
     <p class="bold-text">Is this your first time here?</p>
     For full access to this app, you first need to create an account.
 
-    <ion-button expand="full" fill="outline" class="create-account-button" (click)="goToCreateAccount()">Create Account</ion-button>
-  </div>
-  <div class="login-divider">
-   
+    <ion-button expand="full" fill="outline" class="create-account-button" >Create Account</ion-button>
   </div>
 
+  <div class="login-divider"></div>
 </ion-content>
-
-
-
