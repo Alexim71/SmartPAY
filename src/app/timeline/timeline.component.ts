@@ -24,6 +24,7 @@ export class TimelineComponent  implements OnInit {
   dropdownTop: number = 0;
   dropdownLeft: number = 0;
   selectedActivity: any = null;
+  clickedItem: any = null;
 
 
   constructor(private popoverController: PopoverController, private navCtrl: NavController, private actionSheetController: ActionSheetController, private menu: MenuController) {}
@@ -174,6 +175,14 @@ export class TimelineComponent  implements OnInit {
       .map(word => word[0])
       .join('')
       .toUpperCase();
+  }
+
+  onItemClick(activity: any) {
+    this.clickedItem = activity;
+    // Optionnel : Réinitialiser après un certain délai pour que l'animation disparaisse
+    setTimeout(() => {
+      this.clickedItem = null;
+    }, 300); // la même durée que la transition
   }
   
   ngOnInit() {}
