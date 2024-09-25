@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+
 import { PopoverController, NavParams } from '@ionic/angular';
 
 @Component({

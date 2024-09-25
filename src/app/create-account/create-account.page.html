@@ -46,7 +46,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Country</ion-label>
-        <ion-select [(ngModel)]="selectedCountry" placeholder="Select Country" required>
+        <ion-select [(ngModel)]="selectedCountry" name="selectedCountry" placeholder="Select Country" required>
           <ion-select-option *ngFor="let country of countries" [value]="country">
             {{ country }}
           </ion-select-option>

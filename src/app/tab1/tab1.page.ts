@@ -30,7 +30,7 @@ export class Tab1Page {
   ];
 
   onProfileClick() {
-    // Logic to handle profile icon click
+    // Logic to handle profile icon clickcloseMenu
     console.log('Profile icon clicked');
   }
 
@@ -252,9 +252,7 @@ export class Tab1Page {
   logout(){
     console.log('logout press')
   }
-  closeMenu(){
-    this.menu.close('profileMenu');
-  }
+
 
   switchAccount(){
     console.log('logout press')

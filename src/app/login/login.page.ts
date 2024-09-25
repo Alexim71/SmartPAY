@@ -1,4 +1,6 @@
-import { Component, OnInit  } from '@angular/core';
+
+import { Component } from '@angular/core';
+
 
 import { Router } from '@angular/router';
 
@@ -14,6 +16,7 @@ import { AuthService } from '../auth/auth.service';
 export class LoginPage {
   email: string = '';
   password: string = '';
+
   errorMessage: string = ''; // Variable pour stocker le message d'
   passwordFieldType: string='password'
 
@@ -29,6 +32,7 @@ export class LoginPage {
   }
 
 
+
   async onLogin() {
     this.errorMessage = ''; // Réinitialise le message d'erreur à chaque tentative
     try {
@@ -42,6 +46,7 @@ export class LoginPage {
          this.router.navigate(['/tabs']);
         console.log('Login successful');
         console.log('connexion reussi!!!!')
+
 
       }
     } catch (error) {
