@@ -13,6 +13,7 @@ import {BalanceCardComponent} from '../balance-card/balance-card.component'
 import {MoreOptionsComponent} from '../more-options/more-options.component'
 import {TransactionsCardComponent} from '../transactions-card/transactions-card.component'
 import {OverviewCardComponent} from '../overview-card/overview-card.component'
+import { NgApexchartsModule } from "ng-apexcharts";
 // import { ChartsModule } from 'ng2-charts';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
@@ -24,9 +25,10 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    OverviewCardComponent
+    NgApexchartsModule
+   
   ],
   declarations: [Tab1Page, CalendarCardComponent,TimelineComponent,DropdownMenuComponent, LateralMenuComponent,
-     BalanceCardComponent, MoreOptionsComponent, TransactionsCardComponent]
+     BalanceCardComponent, MoreOptionsComponent, TransactionsCardComponent,  OverviewCardComponent]
 })
 export class Tab1PageModule {}
