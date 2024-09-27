@@ -1,5 +1,7 @@
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 import { Router } from '@angular/router';
 
@@ -17,7 +19,6 @@ import { ApiService } from '../services/api.service';
 export class LoginPage {
   email: string = '';
   password: string = '';
-  errorMessage: string = ''; // Variable pour stocker le message d'erreur
 
   passwordFieldType: string = 'password'; // Default to 'password'
   loginForm: FormGroup;
@@ -49,8 +50,12 @@ export class LoginPage {
     toast.present();
   }
 
+  errorMessage: string = ''; // Variable pour stocker le message d'
+ 
+
 
   
+
 
   // onLogin() {
   //   this.authService.login({ username: this.email, password: this.password })
@@ -63,6 +68,7 @@ export class LoginPage {
   //       }
   //     });
   // }
+
 
 
   //  // Méthode qui est appelée lorsque l'utilisateur soumet le formulaire de connexion

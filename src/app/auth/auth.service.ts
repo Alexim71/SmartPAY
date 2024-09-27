@@ -19,6 +19,7 @@ export class AuthService {
     private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
+
   // constructor(private http: HttpClient) {}
     constructor(  private http: HttpClient) {
     this.checkLoggedInStatus();
@@ -66,5 +67,6 @@ export class AuthService {
 
     this.isLoggedInSubject.next(!!currentToken); // Met à jour le statut de connexion basé sur l'existence du token
   }
+
 
 }
