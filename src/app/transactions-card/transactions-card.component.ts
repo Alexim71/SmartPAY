@@ -13,7 +13,9 @@ export class TransactionsCardComponent  implements OnInit {
     transactions = [
       { customer: 'John Doe', transactionId: 'TX123456789', date: new Date(), amount: 250 },
       { customer: 'Jane Smith', transactionId: 'TX987654321', date: new Date(), amount: 100 },
-      { customer: 'Samuel Green', transactionId: 'TX123987654', date: new Date(), amount: 150 }
+      { customer: 'Samuel Green', transactionId: 'TX123987654', date: new Date(), amount: 150 },
+      { customer: 'Jean Eddy', transactionId: 'TX826987654', date: new Date(), amount: 1050 },
+      { customer: 'Nannot Evelinne', transactionId: 'TX727987654', date: new Date(), amount: 1450 }
     ];
     constructor() { }
 
