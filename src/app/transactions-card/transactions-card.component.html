@@ -2,13 +2,54 @@
   <ion-card-header>
     <ion-card-title style="color: #3498db; font-weight: bold;">
       Transactions
-      <ion-button class="floating-btn"  (click)="presentPopover($event); $event.stopPropagation();" >
-        <ion-icon slot="icon-only" name="add-circle-outline" ></ion-icon>
+      <ion-button class="floating-btn" (click)="presentPopover($event); $event.stopPropagation();">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
       </ion-button>
-     
     </ion-card-title>
   </ion-card-header>
+
   <ion-card-content>
+
+    <!-- Section de tri et filtre -->
+    <div class="filter-sort-section">
+      <ion-toolbar>
+        <ion-item class="sort-item">
+          <ion-label>Sort</ion-label>
+          <ion-select [(ngModel)]="selectedSort" (ionChange)="sortActivities()">
+            <ion-select-option value="date-asc">Date (Ascending)</ion-select-option>
+            <ion-select-option value="date-desc">Date (Descending)</ion-select-option>
+            <ion-select-option value="name-asc">Name (A-Z)</ion-select-option>
+            <ion-select-option value="name-desc">Name (Z-A)</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-buttons slot="end">
+          <ion-button fill="clear" (click)="toggleFilter()">
+            <ion-icon name="filter-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </div>
+
+    <!-- Barre de recherche -->
+    <ion-item class="search-bar">
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-input placeholder="Search by transaction type or name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
+    </ion-item>
+
+    <!-- Sélection de filtre -->
+    <ion-item class="filter-item">
+      <ion-select [(ngModel)]="selectedFilter" placeholder="Filter by" (ionChange)="filterActivities()">
+        <ion-select-option value="overdue">Overdue</ion-select-option>
+        <ion-select-option value="due-date">Due Date</ion-select-option>
+        <ion-select-option value="next-7-days">Next 7 Days</ion-select-option>
+        <ion-select-option value="next-30-days">Next 30 Days</ion-select-option>
+        <ion-select-option value="next-3-months">Next 3 Months</ion-select-option>
+        <ion-select-option value="next-6-months">Next 6 Months</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Liste des transactions -->
     <ion-list class="scrollable-list">
       <ion-item *ngFor="let transaction of transactions; let i = index" [ngClass]="{'odd-item': i % 2 === 0, 'even-item': i % 2 !== 0}">
         <ion-label>
@@ -24,5 +65,6 @@
         </ion-buttons>
       </ion-item>
     </ion-list>
+
   </ion-card-content>
 </ion-card>

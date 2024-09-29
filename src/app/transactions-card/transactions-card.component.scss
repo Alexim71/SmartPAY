@@ -2,13 +2,13 @@ ion-item {
     --background: white;
   }
   
-  .odd-item {
-    --background: white; /* Couleur blanche pour les items impairs */
-  }
+  // .odd-item {
+  //   --background: white; /* Couleur blanche pour les items impairs */
+  // }
   
-  .even-item {
-    --background: #f2f2f2; /* Couleur gris clair pour les items pairs */
-  }
+  // .even-item {
+  //   --background: #f2f2f2; /* Couleur gris clair pour les items pairs */
+  // }
   
   ion-card-title {
     font-size: 1.2rem;
@@ -16,10 +16,10 @@ ion-item {
     justify-content: space-between;
   }
   
-  .scrollable-list {
-    max-height: 300px; /* Limiter la hauteur */
-    overflow-y: auto;  /* Activer le défilement vertical */
-  }
+  // .scrollable-list {
+  //   max-height: 400px; /* Limiter la hauteur */
+  //   overflow-y: auto;  /* Activer le défilement vertical */
+  // }
 
   .floating-btn {
     position: fixed; /* Fixe le bouton à une position spécifique dans la fenêtre */
@@ -34,9 +34,52 @@ ion-item {
     height: 25px; /* Taille personnalisée du bouton */
   }
   
-  .floating-btn ion-icon {
-    font-size: 24px; /* Ajuste la taille de l'icône */
-  }
+  // .floating-btn ion-icon {
+  //   font-size: 24px; /* Ajuste la taille de l'icône */
+  // }
+
+
+  //*****************************************************
+  /* Style de la section de filtre et tri */
+.filter-sort-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sort-item {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.search-bar, .filter-item {
+  margin-bottom: 15px;
+}
+
+/* Limite de hauteur pour la liste et ajout du défilement */
+.scrollable-list {
+  max-height: 300px; /* Ajuste la hauteur selon tes besoins */
+  overflow-y: auto;
+  padding-top: 10px;
+  border-top: 1px solid #dcdcdc;
+}
+
+/* Alternance des couleurs de fond pour différencier les items */
+.odd-item {
+  background-color: #f9f9f9;
+}
+
+.even-item {
+  background-color: #ffffff;
+}
+
+/* Style pour le bouton flottant */
+.floating-btn {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+}
+
   
  
   

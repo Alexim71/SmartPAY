@@ -1,68 +1,65 @@
 <ion-card>
-        <ion-card-header>
-              <ion-card-title  style="color: #3498db;">
-                <ion-icon name="time-outline" style="font-size: 25px;"></ion-icon>
-                Timeline</ion-card-title>
-              <ion-toolbar>
-                <ion-buttons slot="start">
-       
-                  <!-- Menu déroulant pour le tri -->
-                  <ion-item>
-                    <ion-label>Sort</ion-label>
-                    <ion-select [(ngModel)]="selectedSort" (ionChange)="sortActivities()">
-                      <ion-select-option value="date-asc">Date (Ascending)</ion-select-option>
-                      <ion-select-option value="date-desc">Date (Descending)</ion-select-option>
-                      <ion-select-option value="name-asc">Name (A-Z)</ion-select-option>
-                      <ion-select-option value="name-desc">Name (Z-A)</ion-select-option>
-                    </ion-select>
-                  </ion-item>
+  <ion-card-header>
+    <ion-card-title style="color: #3498db;">
+      <ion-icon name="time-outline" style="font-size: 25px;"></ion-icon>
+      Timeline
+    </ion-card-title>
+    <ion-toolbar>
+      <!-- Menu déroulant pour le tri -->
+      <ion-item class="sort-filter-item">
+        <ion-label>Sort</ion-label>
+        <ion-select [(ngModel)]="selectedSort" (ionChange)="sortActivities()">
+          <ion-select-option value="date-asc">Date (Ascending)</ion-select-option>
+          <ion-select-option value="date-desc">Date (Descending)</ion-select-option>
+          <ion-select-option value="name-asc">Name (A-Z)</ion-select-option>
+          <ion-select-option value="name-desc">Name (Z-A)</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-                </ion-buttons>
-                <ion-buttons slot="end">
-                  <ion-button fill="clear" (click)="toggleFilter()">
-                    <ion-icon name="filter-outline"></ion-icon>
-                  </ion-button>
-                </ion-buttons>
-              </ion-toolbar>
-        </ion-card-header>
+      <!-- Bouton de filtre -->
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="toggleFilter()">
+          <ion-icon name="filter-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-card-header>
 
-        <ion-card-content>
-                <ion-item>
-                  <ion-icon name="search-outline" slot="start"></ion-icon>
-                  <ion-input placeholder="Search by activity type or name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
-                </ion-item>
+  <ion-card-content>
+    <!-- Recherche -->
+    <ion-item class="search-item">
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-input placeholder="Search by activity type or name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
+    </ion-item>
 
-                <ion-item>
-                  <ion-select [(ngModel)]="selectedFilter" placeholder="Filter by" (ionChange)="filterActivities()">
-                    <ion-select-option value="overdue">Overdue</ion-select-option>
-                    <ion-select-option value="due-date">Due Date</ion-select-option>
-                    <ion-select-option value="next-7-days">Next 7 Days</ion-select-option>
-                    <ion-select-option value="next-30-days">Next 30 Days</ion-select-option>
-                    <ion-select-option value="next-3-months">Next 3 Months</ion-select-option>
-                    <ion-select-option value="next-6-months">Next 6 Months</ion-select-option>
-                  </ion-select>
-                </ion-item>
+    <!-- Filtre -->
+    <ion-item class="filter-item">
+      <ion-select [(ngModel)]="selectedFilter" placeholder="Filter by" (ionChange)="filterActivities()">
+        <ion-select-option value="overdue">Overdue</ion-select-option>
+        <ion-select-option value="due-date">Due Date</ion-select-option>
+        <ion-select-option value="next-7-days">Next 7 Days</ion-select-option>
+        <ion-select-option value="next-30-days">Next 30 Days</ion-select-option>
+        <ion-select-option value="next-3-months">Next 3 Months</ion-select-option>
+        <ion-select-option value="next-6-months">Next 6 Months</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-                <!-- Display filtered activities -->
-                <ion-list>
-                  <ion-item *ngFor="let activity of filteredActivities "  [ngClass]="{'list-item-clicked': clickedItem === activity}" class="list-item"  button="true" (click)="onActivityClick(activity)">
-                   
-                    <ion-avatar slot="start">
-                      <div class="avatar-placeholder" [ngStyle]="{'background-color': activity.color}">
-                        {{ getInitials(activity.name) }}
-                      </div>
-                    </ion-avatar>
+    <!-- Liste des activités -->
+    <ion-list class="activity-list">
+      <ion-item *ngFor="let activity of filteredActivities" [ngClass]="{'list-item-clicked': clickedItem === activity}" class="list-item" button="true" (click)="onActivityClick(activity)">
+        <ion-avatar slot="start">
+          <div class="avatar-placeholder" [ngStyle]="{'background-color': activity.color}">
+            {{ getInitials(activity.name) }}
+          </div>
+        </ion-avatar>
 
-                    <ion-label>
-                      <h2>{{ activity.name }}</h2>
-                      <p>{{ activity.date | date }}</p>
-                    </ion-label>
+        <ion-label>
+          <h2>{{ activity.name }}</h2>
+          <p>{{ activity.date | date }}</p>
+        </ion-label>
 
-                    <ion-icon name="ellipsis-vertical" slot="end" (click)="presentPopover($event, activity); $event.stopPropagation();"></ion-icon>
-                  </ion-item>
-                </ion-list>
-
-
-        </ion-card-content>
+        <ion-icon name="ellipsis-vertical" slot="end" (click)="presentPopover($event, activity); $event.stopPropagation();"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
 </ion-card>
-
