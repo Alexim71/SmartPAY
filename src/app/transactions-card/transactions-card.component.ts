@@ -19,14 +19,15 @@ export class TransactionsCardComponent  implements OnInit {
   selectedDate: string = '';  // Stocker la date sélectionnée
   selectedActivity: any = null;
   dropdownVisible: boolean = false;
+  clickedItem: any = null;
 
 
   constructor(private popoverController: PopoverController) { }
 
     // Sample transactions data
     transactions: any[]= [
-      {id:1, customer: 'John Doe', transactionId: 'TX123456789', date: new Date('2024-09-10'), amount: 250 },
-      { id:2,customer: 'Jane Smith', transactionId: 'TX987654321', date: new Date('2022-09-15'), amount: 100 },
+      {id:1, customer: 'ALEXIMA Sanlove Eden', transactionId: 'TX123456789', date: new Date('2024-09-10'), amount: 250 },
+      { id:2,customer: 'ALEXIMA Smith', transactionId: 'TX987654321', date: new Date('2022-09-15'), amount: 100 },
       { id:3,customer: 'Samuel Green', transactionId: 'TX123987654', date: new Date('2023-09-15'), amount: 150 },
       {id:4, customer: 'Jean Eddy', transactionId: 'TX826987654', date: new Date('2021-09-15'), amount: 1050 },
       {id:5, customer: 'Nannot Evelinne', transactionId: 'TX727987654', date: new Date('2022-09-15'), amount: 1450 }
@@ -43,23 +44,23 @@ export class TransactionsCardComponent  implements OnInit {
       this.filterActivities();  // Ajoutez la logique de filtre ici si nécessaire
     }
 
-      // Method to handle 'more' button click for the card
-  presentPopover(event: Event) {
-    // Implement the popover options (e.g. delete, edit, etc.)
-    console.log('Card options clicked');
-  }
-
-  // async presentPopover(event: Event, activity: any) {
-  //   const popover = await this.popoverController.create({
-  //     component: DropdownMenuComponent, // Le composant pour le menu
-  //     event: event,
-  //     translucent: false,
-  //     componentProps: { activity: activity }, // Passer l'activity au menu déroulant
-  //     cssClass: 'custom-popover-position', // Classe personnalisée pour le style
-  //   });
-  //   console.log('MORE clicked')
-  //   return await popover.present();
+  //     // Method to handle 'more' button click for the card
+  // presentPopover(event: Event) {
+  //   // Implement the popover options (e.g. delete, edit, etc.)
+  //   console.log('Card options clicked');
   // }
+
+  async presentPopover(event: Event, activity: any) {
+    const popover = await this.popoverController.create({
+      component: DropdownMenuComponent, // Le composant pour le menu
+      event: event,
+      translucent: false,
+      componentProps: { activity: activity }, // Passer l'activity au menu déroulant
+      cssClass: 'custom-popover-position', // Classe personnalisée pour le style
+    });
+    console.log('MORE clicked')
+    return await popover.present();
+  }
 
   // Method to handle 'more' button click for each transaction item
   openTransactionOptions(transaction: any) {
@@ -159,6 +160,19 @@ export class TransactionsCardComponent  implements OnInit {
     if (event.target instanceof HTMLElement && !event.target.closest('app-dropdown-menu')) {
       this.dropdownVisible = false;
     }
+  }
+  onItemClick(activity: any) {
+    this.clickedItem = activity;
+    // Optionnel : Réinitialiser après un certain délai pour que l'animation disparaisse
+    setTimeout(() => {
+      this.clickedItem = null;
+    }, 300); // la même durée que la transition
+  }
+
+  onActivityClick(activity : any) {
+    console.log('Activity clicked:', activity);
+    console.log('PAYMENT clicked')
+    // Additional logic for activity click
   }
 
 }

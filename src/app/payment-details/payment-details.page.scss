@@ -1,0 +1,55 @@
+// ion-card-title {
+//     color: #3498db;
+//     font-weight: bold;
+//   }
+  
+//   ion-item {
+//     --padding-start: 0;
+//   }
+  
+//   ion-button {
+//     margin-top: 20px;
+//   }
+
+//   .transaction-card {
+//     height: 300px; // Ajustez cette valeur selon vos besoins
+//     display: flex;
+//     flex-direction: column; // Aligne le contenu de la carte verticalement
+//   }
+  
+//   .transaction-card ion-card-content {
+//     flex: 1; // Permet au contenu de la carte de remplir l'espace disponible
+//   }
+
+.transaction-card {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    height: 100%; /* Permet à la carte d'utiliser toute la hauteur disponible */
+  }
+  
+  .transaction-card ion-card-content {
+    flex: 1; /* Permet à ce conteneur d'utiliser tout l'espace disponible */
+    display: flex;
+    flex-direction: column; /* Permet d'aligner le bouton en bas */
+    justify-content: space-between; /* Écarte le contenu pour que le bouton soit en bas */
+  }
+  /* global.scss ou votre fichier de styles */
+.my-custom-modal {
+    --width: 90%; /* Ajuste la largeur du modal */
+    --max-width: 600px; /* Ajuste la largeur maximale */
+    --background: white; /* Couleur de fond du modal */
+    border-radius: 8px; /* Coins arrondis */
+  }
+  .alert-custom {
+    --background: #f9f9f9; /* Couleur de fond */
+    --color: #333; /* Couleur du texte */
+    --border-radius: 10px; /* Coins arrondis */
+    padding: 15px; /* Espacement interne */
+    font-family: Arial, sans-serif; /* Police de caractères */
+  }
+  
+  
+  
+  
+  
+  

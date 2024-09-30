@@ -1,13 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>Notifications</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Notifications</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Barre de recherche pour filtrer les notifications -->
+  <ion-item>
+    <ion-input placeholder="Search Notifications" [(ngModel)]="searchQuery" (ionInput)="filterNotifications()"></ion-input>
+    <ion-icon name="search-outline" slot="start"></ion-icon>
+  </ion-item>
+
+  <!-- Liste des notifications -->
+  <!-- Liste des notifications -->
+<ion-list>
+  <ion-item *ngFor="let notification of notifications" [ngClass]="{'list-item-clicked': clickedItem === notification}" class="list-item" button="true">
+    <ion-label>
+      <h2>{{ notification.title }}</h2>
+      <p>{{ notification.message }}</p>
+      <p class="date">{{ notification.date | date: 'short' }}</p>
+
+      <!-- Bouton "Voir la fiche de paiement" positionné en dessous de la date -->
+      <ion-button *ngIf="notification.title === 'Paiement en attente' && notification.transactionId !== undefined" (click)="goToPaymentDetails(notification.transactionId)">
+        Voir la fiche de paiement
+      </ion-button>
+    </ion-label>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="markAsRead(notification)">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="deleteNotification(notification)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+</ion-list>
+
+
+  <!-- Si aucune notification n'est trouvée -->
+  <ion-item *ngIf="filteredNotifications.length === 0">
+    <ion-label>Aucune notification disponible.</ion-label>
+  </ion-item>
 </ion-content>

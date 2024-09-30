@@ -9,4 +9,36 @@
     --ion-color-primary-tint: #4c8dff;
     /* Autres couleurs ... */
   }
+  .my-custom-modal {
+    --width: 90%; /* Ajuste la largeur du modal */
+    --max-width: 600px; /* Ajuste la largeur maximale */
+    --background: white; /* Couleur de fond du modal */
+    border-radius: 8px; /* Coins arrondis */
+  }
+
+  // .my-custom-modal {
+  //   --width: 90%; /* Largeur du modal */
+  //   --max-width: 600px; /* Largeur maximale */
+  //   --background: white; /* Couleur de fond */
+  //   border-radius: 8px; /* Coins arrondis */
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%); /* Centre la modal au milieu de l'écran */
+  //   padding: 20px; /* Espace intérieur */
+  //   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ombre pour donner un effet de carte */
+  // }
+  
+  // ion-content.my-custom-modal-content {
+  //   --padding-bottom: 16px; /* Optionnel : Ajuster les marges intérieures du contenu */
+  // }
+
+  // ion-modal {
+  //   --background: transparent; /* Pour un fond transparent */
+  //   display: flex;
+  //   justify-content: center; /* Centrer le modal horizontalement */
+  //   align-items: center; /* Centrer le modal verticalement */
+  // }
+  
+  
   

@@ -23,6 +23,11 @@ const routes: Routes = [
     path: 'settings-login',
     loadChildren: () => import('./settings-login/settings-login.module').then( m => m.SettingsLoginPageModule)
   },
+  {
+    path: 'payment-details/:transactionId',
+    loadChildren: () => import('./payment-details/payment-details.module').then( m => m.PaymentDetailsPageModule)
+  },
+
 
   
  

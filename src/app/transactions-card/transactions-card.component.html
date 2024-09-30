@@ -2,7 +2,7 @@
   <ion-card-header>
     <ion-card-title style="color: #3498db; font-weight: bold;">
       Transactions
-      <ion-button class="floating-btn" (click)="presentPopover($event); $event.stopPropagation();">
+      <ion-button class="floating-btn" >
         <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
       </ion-button>
     </ion-card-title>
@@ -51,18 +51,19 @@
 
     <!-- Liste des transactions -->
     <ion-list class="scrollable-list">
-      <ion-item *ngFor="let transaction of transactions; let i = index" [ngClass]="{'odd-item': i % 2 === 0, 'even-item': i % 2 !== 0}">
+      <ion-item *ngFor="let activity of filteredActivities" [ngClass]="{'list-item-clicked': clickedItem === activity}" class="list-item" button="true" (click)="onActivityClick(activity)">
         <ion-label>
-          <h2>Customer: {{ transaction.customer }}</h2>
-          <p>Transaction ID: {{ transaction.transactionId }}</p>
-          <p>Date: {{ transaction.date | date }}</p>
-          <p>Amount: {{ transaction.amount | currency:'USD' }}</p>
+          <h2>Customer: {{ activity.customer }}</h2>
+          <p>Transaction ID: {{ activity.transactionId }}</p>
+          <p>Date: {{ activity.date | date }}</p>
+          <p >Amount: {{ activity.amount | currency:'USD' }}</p>
         </ion-label>
-        <ion-buttons slot="end">
+        <!-- <ion-buttons slot="end">
           <ion-button (click)="openTransactionOptions(transaction)">
             <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
           </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
+        <ion-icon name="ellipsis-vertical" slot="end" (click)="presentPopover($event, activity); $event.stopPropagation();"></ion-icon>
       </ion-item>
     </ion-list>
 
