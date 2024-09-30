@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component'; // Menu déroulant
 
 @Component({
   selector: 'app-transactions-card',
@@ -16,20 +18,24 @@ export class TransactionsCardComponent  implements OnInit {
   showFilter: boolean = false;
   selectedDate: string = '';  // Stocker la date sélectionnée
   selectedActivity: any = null;
+  dropdownVisible: boolean = false;
+
+
+  constructor(private popoverController: PopoverController) { }
 
     // Sample transactions data
     transactions: any[]= [
-      { customer: 'John Doe', transactionId: 'TX123456789', date: new Date(), amount: 250 },
-      { customer: 'Jane Smith', transactionId: 'TX987654321', date: new Date(), amount: 100 },
-      { customer: 'Samuel Green', transactionId: 'TX123987654', date: new Date(), amount: 150 },
-      { customer: 'Jean Eddy', transactionId: 'TX826987654', date: new Date(), amount: 1050 },
-      { customer: 'Nannot Evelinne', transactionId: 'TX727987654', date: new Date(), amount: 1450 }
+      {id:1, customer: 'John Doe', transactionId: 'TX123456789', date: new Date('2024-09-10'), amount: 250 },
+      { id:2,customer: 'Jane Smith', transactionId: 'TX987654321', date: new Date('2022-09-15'), amount: 100 },
+      { id:3,customer: 'Samuel Green', transactionId: 'TX123987654', date: new Date('2023-09-15'), amount: 150 },
+      {id:4, customer: 'Jean Eddy', transactionId: 'TX826987654', date: new Date('2021-09-15'), amount: 1050 },
+      {id:5, customer: 'Nannot Evelinne', transactionId: 'TX727987654', date: new Date('2022-09-15'), amount: 1450 }
     ];
 
     filteredActivities: any[] = [...this.transactions];
 
     
-    constructor() { }
+    
 
     
     // Méthode pour activer/désactiver les filtres (à implémenter)
@@ -42,6 +48,19 @@ export class TransactionsCardComponent  implements OnInit {
     // Implement the popover options (e.g. delete, edit, etc.)
     console.log('Card options clicked');
   }
+
+  // async presentPopover(event: Event, activity: any) {
+  //   const popover = await this.popoverController.create({
+  //     component: DropdownMenuComponent, // Le composant pour le menu
+  //     event: event,
+  //     translucent: false,
+  //     componentProps: { activity: activity }, // Passer l'activity au menu déroulant
+  //     cssClass: 'custom-popover-position', // Classe personnalisée pour le style
+  //   });
+  //   console.log('MORE clicked')
+  //   return await popover.present();
+  // }
+
   // Method to handle 'more' button click for each transaction item
   openTransactionOptions(transaction: any) {
     // Implement additional options for each transaction (e.g., view details, edit, delete)
@@ -52,10 +71,10 @@ export class TransactionsCardComponent  implements OnInit {
     const today = new Date();
 
     // Filtrer par recherche d'activité
-    let filtered = this.transactions.filter(transactions => {
+    let filtered = this.transactions.filter(activity => {
       return (
-        transactions.customer.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        transactions.transactionId.toLowerCase().includes(this.searchQuery.toLowerCase())
+        activity.customer.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        activity.transactionId.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     });
 
@@ -111,10 +130,10 @@ export class TransactionsCardComponent  implements OnInit {
           comparison = b.date.getTime() - a.date.getTime(); // Date décroissante
           break;
         case 'name-asc':
-          comparison = a.name.localeCompare(b.name); // Nom croissant (A-Z)
+          comparison = a.customer.localeCompare(b.customer); // Nom croissant (A-Z)
           break;
         case 'name-desc':
-          comparison = b.name.localeCompare(a.name); // Nom décroissant (Z-A)
+          comparison = b.customer.localeCompare(a.customer); // Nom décroissant (Z-A)
           break;
         default:
           break;
@@ -133,6 +152,13 @@ export class TransactionsCardComponent  implements OnInit {
       this.sortBy = 'date';
     }
     this.sortActivities(); // Appliquer le tri
+  }
+
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: MouseEvent) {
+    if (event.target instanceof HTMLElement && !event.target.closest('app-dropdown-menu')) {
+      this.dropdownVisible = false;
+    }
   }
 
 }
