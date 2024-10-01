@@ -1,25 +1,4 @@
-// ion-card-title {
-//     color: #3498db;
-//     font-weight: bold;
-//   }
-  
-//   ion-item {
-//     --padding-start: 0;
-//   }
-  
-//   ion-button {
-//     margin-top: 20px;
-//   }
 
-//   .transaction-card {
-//     height: 300px; // Ajustez cette valeur selon vos besoins
-//     display: flex;
-//     flex-direction: column; // Aligne le contenu de la carte verticalement
-//   }
-  
-//   .transaction-card ion-card-content {
-//     flex: 1; // Permet au contenu de la carte de remplir l'espace disponible
-//   }
 
 .transaction-card {
     display: flex;
@@ -47,6 +26,22 @@
     padding: 15px; /* Espacement interne */
     font-family: Arial, sans-serif; /* Police de caractères */
   }
+
+  .custom-title {
+    font-family: 'Montserrat ', sans-serif; /* Utiliser une police spécifique */
+    font-size: 15px; /* Taille de la police */
+    color: #0c0c0c; /* Couleur du texte */
+    // font-weight: bold; /* Gras pour un titre plus visible */
+    display: flex; /* Alignement horizontal avec l'icône */
+    align-items: center; /* Aligner l'icône verticalement au texte */
+  }
+  
+  .custom-title ion-icon {
+    font-size: 28px; /* Taille de l'icône */
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+    color: #080808; /* Couleur de l'icône */
+  }
+  
   
   
   
