@@ -30,6 +30,13 @@ export class PaymentModalComponent  implements OnInit {
     // Logique pour effectuer le paiement
     this.closeModal();
   }
+
+    // Exemple de méthode pour envoyer le lien de paiement
+    sendPaymentLink() {
+      const paymentLink = 'https://payment-gateway.example.com/pay?amount=' + this.transaction.finalTotal;
+      console.log('Lien de paiement :', paymentLink);
+      // Vous pouvez ajouter ici la logique pour envoyer le lien à l'utilisateur
+    }
  
 
 }

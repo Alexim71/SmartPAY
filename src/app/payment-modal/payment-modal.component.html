@@ -1,29 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Détails du paiement</ion-title>
+    <ion-title>Détails du Paiement</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
+      <ion-button (click)="closeModal()">Fermer</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="alert-modal-content">
-  <div class="alert-modal-body">
-    <p><strong>Article :</strong> {{ transaction.article }}</p>
-    <p><strong>Montant :</strong> ${{ transaction.totalPrice }}</p>
-    <p><strong>Taxes :</strong> ${{ (transaction.totalPrice * 0.15).toFixed(2) }}</p>
-    <p><strong>Coupons :</strong> $10</p>
-    <p><strong>Total :</strong> ${{ (transaction.totalPrice * 1.15 - 10).toFixed(2) }}</p>
-    <p><strong>Méthodes de paiement :</strong></p>
-    <p>1. Carte de crédit</p>
-    <p>2. PayPal</p>
-    <p>3. Lien de paiement</p>
-  </div>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Montant</ion-label>
+      <ion-text>{{ transaction.totalPrice | currency:'USD' }}</ion-text>
+    </ion-item>
 
-  <ion-footer>
-    <ion-button expand="full" (click)="confirmPayment()">Confirmer le paiement</ion-button>
-    <ion-button expand="full" color="light" (click)="closeModal()">Annuler</ion-button>
-  </ion-footer>
+    <ion-item>
+      <ion-label position="stacked">Taxes</ion-label>
+      <ion-text>{{ transaction.taxes | currency:'USD' }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Coupons</ion-label>
+      <ion-text>{{ transaction.coupons | currency:'USD' }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Total</ion-label>
+      <ion-text>{{ transaction.finalTotal | currency:'USD' }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Méthodes de Paiement</ion-label>
+      <ion-text>Carte de Crédit, PayPal, etc.</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="primary" (click)="sendPaymentLink()">Envoyer le Lien de Paiement</ion-button>
 </ion-content>

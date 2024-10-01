@@ -86,7 +86,9 @@ async performPayment(transaction: any) {
     componentProps: {
       transaction: transaction, // Passer les détails de la transaction
     },
-    cssClass: 'alert-modal-content', // Utiliser la classe CSS pour styliser le modal
+    cssClass: 'my-custom-modal', // Utiliser la classe CSS pour styliser le modal
+    animated: true, // Activez les animations
+      backdropDismiss: true 
   });
 
   await modal.present();
