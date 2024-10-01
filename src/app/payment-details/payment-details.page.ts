@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, ModalController  } from '@ionic/angular';
 import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
+import { PopoverController } from '@ionic/angular';
+import { MoreOptionsComponent } from '../more-options/more-options.component';
 
 @Component({
   selector: 'app-payment-details',
@@ -9,11 +11,12 @@ import { PaymentModalComponent } from '../payment-modal/payment-modal.component'
   styleUrls: ['./payment-details.page.scss'],
 })
 export class PaymentDetailsPage implements OnInit {
+  moreOptionVisible: boolean = false;
   transactionId: number = 0;
   // transaction: any;
   transactions: any[] = [];
 
-  constructor(private route: ActivatedRoute, private alertController: AlertController, private modalController: ModalController ) { }
+  constructor(private route: ActivatedRoute, private alertController: AlertController, private modalController: ModalController, private popoverController: PopoverController ) { }
 
   ngOnInit() {
     // Récupérer l'ID de la transaction à partir de l'URL
@@ -50,35 +53,6 @@ export class PaymentDetailsPage implements OnInit {
     // Charger les détails de la transaction à partir de cet ID...
   }
 
-  //  // Méthode pour effectuer le paiement
-  //  async  performPayment(transaction: any) {
-  //   // Logique pour effectuer le paiement ici.
-  //   console.log('Paiement effectué avec succès.');
-
-    
-
-  //   // // Exemple : Affichage d'une alerte pour indiquer que le paiement a réussi
-  //   // this.showPaymentSuccessAlert();
-
-  //   const modal = await this.modalController.create({
-  //     component: PaymentModalComponent,
-  //     componentProps: { transaction: transaction } // Passer les détails de la transaction à la modal
-  //   });
-  //   return await modal.present();
-  // }
-
-
-//   async performPayment(transaction: any) {
-//     const modal = await this.modalController.create({
-//       component: PaymentModalComponent,
-//       componentProps: { transaction: transaction },
-//       cssClass: 'my-custom-modal', // Classe CSS personnalisée pour des styles supplémentaires
-//       animated: true, // Activez les animations
-//       backdropDismiss: true // Permet de fermer le modal en cliquant en dehors
-//     });
-//     return await modal.present();
-// }
-
 
 async performPayment(transaction: any) {
   const modal = await this.modalController.create({
@@ -94,20 +68,33 @@ async performPayment(transaction: any) {
   await modal.present();
 }
 
+// Méthode pour ouvrir le menu 'More' avec Popover
+async presentPopover(ev: any) {
+  const popover = await this.popoverController.create({
+    component: MoreOptionsComponent, // Le menu 'More' en tant que composant
+    event: ev,
+    translucent: true
+  });
+  return await popover.present();
+}
+
+showMoreOptionMenu(event: MouseEvent, activity: any) {
+  this.moreOptionVisible = true;
+  const target = event.currentTarget as HTMLElement;
+ 
+}
+
+@HostListener('document:click', ['$event'])
+handleClickOutside(event: MouseEvent) {
+  if (event.target instanceof HTMLElement && !event.target.closest('app-dropdown-menu')) {
+    this.moreOptionVisible = false;
+  }
+}
 
 
   }
 
-  //  // Méthode pour afficher une alerte de succès
-  //  async showPaymentSuccessAlert() {
-  //   const alert = await this.alertController.create({
-  //     header: 'Succès',
-  //     message: 'Le paiement a été effectué avec succès.',
-  //     buttons: ['OK']
-  //   });
-
-  //   await alert.present();
-  // }
+  
   
 
 

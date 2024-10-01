@@ -12,10 +12,11 @@
           <ion-card-header>
             <ion-card-title class="custom-title">
               <ion-icon name="file-tray-outline"></ion-icon>
-              Détails transaction
+              <span class="title-text">Détails transaction</span>
+              <ion-icon name="ellipsis-vertical" (click)="presentPopover($event); $event.stopPropagation();"></ion-icon>
             </ion-card-title>
           </ion-card-header>
-
+        
           <ion-card-content>
             <ion-list>
               <!-- Quantité -->
@@ -23,34 +24,40 @@
                 <ion-label position="stacked">Quantité</ion-label>
                 <ion-text>{{ transaction.quantity }}</ion-text>
               </ion-item>
-
+        
               <!-- Article -->
               <ion-item>
                 <ion-label position="stacked">Article</ion-label>
                 <ion-text>{{ transaction.article }}</ion-text>
               </ion-item>
-
+        
               <!-- Description -->
               <ion-item>
                 <ion-label position="stacked">Description</ion-label>
                 <ion-text>{{ transaction.description }}</ion-text>
               </ion-item>
-
+        
               <!-- Prix unitaire -->
               <ion-item>
                 <ion-label position="stacked">Prix Unitaire</ion-label>
                 <ion-text>{{ transaction.unitPrice | currency:'USD' }}</ion-text>
               </ion-item>
-
+        
               <!-- Prix total -->
               <ion-item>
                 <ion-label position="stacked">Prix Total</ion-label>
                 <ion-text>{{ transaction.totalPrice | currency:'USD' }}</ion-text>
               </ion-item>
             </ion-list>
-
+        
             <!-- Bouton pour effectuer le paiement -->
             <ion-button expand="full" color="primary" (click)="performPayment(transaction)">Effectuer le paiement</ion-button>
+        
+            <!-- Logo et nom de l'application marchande -->
+            <div class="merchant-info">
+              <img src="../../assets/original.png" alt="Logo de l'application marchande" class="merchant-logo" />
+              <ion-text class="merchant-name">SmartSCHOOL</ion-text>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>

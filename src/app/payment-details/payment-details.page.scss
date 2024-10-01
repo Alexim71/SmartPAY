@@ -1,5 +1,4 @@
 
-
 .transaction-card {
     display: flex;
     flex-direction: column; /* Aligne les éléments verticalement */
@@ -26,20 +25,73 @@
     padding: 15px; /* Espacement interne */
     font-family: Arial, sans-serif; /* Police de caractères */
   }
-
-  .custom-title {
-    font-family: 'Montserrat ', sans-serif; /* Utiliser une police spécifique */
-    font-size: 15px; /* Taille de la police */
-    color: #0c0c0c; /* Couleur du texte */
-    // font-weight: bold; /* Gras pour un titre plus visible */
-    display: flex; /* Alignement horizontal avec l'icône */
-    align-items: center; /* Aligner l'icône verticalement au texte */
+  .alert-modal-content {
+    --background: white; /* Couleur de fond du modal */
+    border-radius: 8px; /* Coins arrondis */
+    max-width: 400px; /* Largeur maximale pour une apparence carrée */
+    width: 100%; /* Pour prendre 100% de la largeur disponible */
+    height: 400px; /* Hauteur fixe pour une apparence carrée */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu verticalement */
+    align-items: center; /* Centrer le contenu horizontalement */
   }
   
-  .custom-title ion-icon {
-    font-size: 28px; /* Taille de l'icône */
-    margin-right: 8px; /* Espace entre l'icône et le texte */
-    color: #080808; /* Couleur de l'icône */
+  .alert-modal-body {
+    padding: 20px;
+    text-align: left;
+    width: 100%; /* Prendre toute la largeur du modal */
+  }
+  
+  ion-footer {
+    display: flex;
+    justify-content: space-between; /* Espacer les boutons en bas */
+    width: 100%; /* Prendre toute la largeur du modal */
+  }
+  
+
+
+
+  .transaction-card {
+    .merchant-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+  
+    .merchant-logo {
+      width: 70px; /* Taille du logo */
+      height: 70px; /* Taille du logo */
+      margin-bottom: 5px;
+    }
+  
+    .merchant-name {
+      font-size: 14px;
+      color: #333;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .custom-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centrer les icônes et le texte verticalement */
+    font-size: 18px; /* Ajustez la taille du texte si nécessaire */
+    padding: 0 10px; /* Ajouter un peu d'espace à gauche et à droite */
+  
+    ion-icon {
+      font-size: 24px; /* Ajustez la taille des icônes si nécessaire */
+      color: #555; /* Ajustez la couleur des icônes */
+    }
+  
+    .title-text {
+      flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
+      text-align: center; /* Centrer le texte */
+      padding: 0 10px; /* Ajouter de l'espace entre les icônes et le texte */
+      font-weight: bold; /* Rendre le titre un peu plus gras */
+    }
   }
   
   
