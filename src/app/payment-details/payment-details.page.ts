@@ -5,6 +5,7 @@ import { PaymentModalComponent } from '../payment-modal/payment-modal.component'
 import { PopoverController } from '@ionic/angular';
 import { MoreOptionsComponent } from '../more-options/more-options.component';
 
+
 @Component({
   selector: 'app-payment-details',
   templateUrl: './payment-details.page.html',

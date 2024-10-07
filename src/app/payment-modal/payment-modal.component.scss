@@ -1,0 +1,54 @@
+/* Ajuster la position des indicateurs de pagination */
+.swiper-pagination {
+    bottom: 60px; /* Augmenter la valeur pour éloigner les indicateurs des boutons */
+    text-align: center;
+    z-index: 10; /* S'assurer que la pagination est au-dessus des boutons */
+  }
+  
+  /* Ajuster les styles des indicateurs */
+  .swiper-pagination-bullet {
+    background: #007bff; /* Couleur de l'indicateur */
+    opacity: 1;
+    margin: 0 4px; /* Ajouter une marge autour des indicateurs */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #ff4081; /* Couleur de l'indicateur actif */
+  }
+  
+  /* Ajouter une marge aux boutons pour éviter le chevauchement */
+  ion-button {
+    margin-bottom: 25px; /* Ajustez cette valeur pour séparer les boutons des indicateurs */
+  }
+  
+  .center-button {
+    display: block;
+    margin: auto;
+    width: 80%; /* Ajustez la largeur selon vos besoins */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .centered-item {
+    top: 50%;
+    left: 10%;
+   
+  }
+  
+  .centered-text {
+    font-size: 1.5rem; /* Ajuster la taille si nécessaire */
+    font-weight: bold; /* Texte en gras pour plus de visibilité */
+    text-align: center; /* Assure un centrage horizontal du texte */
+    width: 100%; /* Utiliser toute la largeur disponible */
+    display: block; /* Permet de centrer plus facilement le texte */
+  }
+  .ou-text{
+    font-weight: bold;
+  }
+  .icon-spacing {
+    margin-right: 10px; /* Ajustez la valeur pour l'espace souhaité */
+  }
+  .bold-text {
+    font-weight: bold;
+  }

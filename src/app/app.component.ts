@@ -2,6 +2,9 @@ import { Component, NgZone  } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { Router } from '@angular/router';
+import { register } from 'swiper/element/bundle';
+
+register();
 
 @Component({
   selector: 'app-root',
