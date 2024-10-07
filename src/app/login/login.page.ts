@@ -1,9 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../services/api.service';
@@ -16,12 +16,13 @@ import { ApiService } from '../services/api.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit  {
   email: string = '';
   password: string = '';
 
   passwordFieldType: string = 'password'; // Default to 'password'
   loginForm: FormGroup;
+  returnUrl: string ='';
 
   // constructor(private authService: AuthService, private toastCtrl: ToastController, private router: Router) {}
 
@@ -30,14 +31,20 @@ export class LoginPage {
     private formBuilder: FormBuilder,  // Pour gérer le formulaire de connexion
     private router: Router,            // Pour la navigation
     private toastController: ToastController , // Pour afficher des messages à l'utilisateur
-    private authService: AuthService,
+    // private authService: AuthService,
     private toastCtrl: ToastController,
+    private route: ActivatedRoute
   ) {
     // Initialisation du formulaire de connexion avec des validations
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+  }
+
+  ngOnInit() {
+    // Get the returnUrl from the query parameters (default to '/tabs' if not present)
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/tabs';
   }
 
    // Méthode pour afficher un toast (message de notification)
@@ -50,51 +57,8 @@ export class LoginPage {
     toast.present();
   }
 
-  errorMessage: string = ''; // Variable pour stocker le message d'
+  errorMessage: string = ''; // Variable pour stocker le message d'erreur
  
-
-
-  
-
-
-  // onLogin() {
-  //   this.authService.login({ username: this.email, password: this.password })
-  //     .subscribe({
-  //       next: () => {
-  //         this.router.navigate(['/tabs']); // Rediriger vers la page d'accueil après la connexion
-  //       },
-  //       error: (error) => {
-  //         this.errorMessage = 'Échec de la connexion. Vérifiez vos identifiants.';
-  //       }
-  //     });
-  // }
-
-
-
-  //  // Méthode qui est appelée lorsque l'utilisateur soumet le formulaire de connexion
-  //  async onLogin() {
-  //   if (this.loginForm.valid) {
-  //     const credentials = this.loginForm.value; // Récupérer les valeurs du formulaire
-
-  //     try {
-  //       this.authService.login(credentials)
-  //       .subscribe({
-  //         next: () => {
-  //           this.router.navigate(['/tabs']); // Rediriger vers la page d'accueil après la connexion
-  //         },
-         
-  //       });
-
-  //     } catch (error) {
-  //       // En cas d'erreur (ex : mauvais identifiants), afficher un message
-  //       this.presentToast('Erreur lors de la connexion. Veuillez vérifier vos identifiants.');
-  //     }
-  //   } else {
-  //     // Si le formulaire est invalide, afficher un message d'erreur
-  //     this.presentToast('Veuillez remplir correctement le formulaire.');
-  //   }
-  // }
-
 
    // Méthode qui est appelée lorsque l'utilisateur soumet le formulaire de connexion
    async onLogin() {
@@ -105,7 +69,8 @@ export class LoginPage {
         await this.apiService.login(credentials);  // Appel de la méthode login du AuthService
 
         // Si la connexion est réussie, rediriger l'utilisateur vers la page principale
-        this.router.navigate(['/tabs']);  
+        // this.router.navigate(['/tabs']);  
+        this.router.navigate([this.returnUrl]);
         this.presentToast('Connexion réussie!');
       } catch (error) {
         // En cas d'erreur (ex : mauvais identifiants), afficher un message

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private menu: MenuController, private router: Router, private zone: NgZone) {}
+  constructor(private menu: MenuController, private router: Router, private zone: NgZone) {this.initializeApp();}
 
   openPage(page: string) {
     console.log('Navigating to page:', page);
@@ -24,14 +24,11 @@ export class AppComponent {
   initializeApp() {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
         this.zone.run(() => {
-            // Example url: https://beerswift.app/tabs/tab2
-            // slug = /tabs/tab2
             const slug = event.url.split(".app").pop();
+            console.log('Deep link URL:', slug);
             if (slug) {
                 this.router.navigateByUrl(slug);
             }
-            // If no match, do nothing - let regular routing
-            // logic take over
         });
     });
 }

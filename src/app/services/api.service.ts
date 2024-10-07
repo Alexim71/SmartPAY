@@ -9,7 +9,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ApiService {
 
-  private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
   constructor(private authservice: AuthService) {
