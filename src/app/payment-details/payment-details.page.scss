@@ -93,6 +93,22 @@
       font-weight: bold; /* Rendre le titre un peu plus gras */
     }
   }
+
+   /* Style de la section de filtre et tri */
+.filter-sort-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sort-item {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.search-bar, .filter-item {
+  margin-bottom: 15px;
+}
   
   
   

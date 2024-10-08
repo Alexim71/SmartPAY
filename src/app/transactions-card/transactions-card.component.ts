@@ -44,12 +44,6 @@ export class TransactionsCardComponent  implements OnInit {
       this.filterActivities();  // Ajoutez la logique de filtre ici si nécessaire
     }
 
-  //     // Method to handle 'more' button click for the card
-  // presentPopover(event: Event) {
-  //   // Implement the popover options (e.g. delete, edit, etc.)
-  //   console.log('Card options clicked');
-  // }
-
   async presentPopover(event: Event, activity: any) {
     const popover = await this.popoverController.create({
       component: DropdownMenuComponent, // Le composant pour le menu
