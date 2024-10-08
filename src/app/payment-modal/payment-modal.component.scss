@@ -52,3 +52,23 @@
   .bold-text {
     font-weight: bold;
   }
+  .payment-logo {
+    width: 40px;  /* Ajustez la taille du logo */
+    height: auto;
+    display: block;
+    margin: 0 auto;  /* Centrer le logo dans le bouton */
+  }
+
+  // .payment-logo {
+  //   width: 40px; /* Ajustez la taille si nécessaire */
+  //   height: auto;
+  //   cursor: pointer; /* Affiche le curseur de la main pour indiquer que c'est cliquable */
+  // }
+  .amount-text {
+    margin-left: auto; /* Aligne le texte à droite */
+    text-align: right;
+  }
+  
+  
+  
+  

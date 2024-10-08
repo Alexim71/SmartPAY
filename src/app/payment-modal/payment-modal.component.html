@@ -10,30 +10,74 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label position="stacked">Montant</ion-label>
-      <ion-text>{{ transaction.totalPrice | currency:'USD' }}</ion-text>
+      <ion-label position="fixed">Montant</ion-label>
+      <ion-text class="amount-text">{{ transaction.totalPrice | currency:'USD' }}</ion-text>
     </ion-item>
-
+    
     <ion-item>
-      <ion-label position="stacked">Taxes</ion-label>
-      <ion-text>{{ transaction.taxes | currency:'USD' }}</ion-text>
+      <ion-label position="fixed">Taxes</ion-label>
+      <ion-text class="amount-text">{{ transaction.taxes | currency:'USD' }}</ion-text>
     </ion-item>
-
+    
     <ion-item>
-      <ion-label position="stacked">Coupons</ion-label>
-      <ion-text>{{ transaction.coupons | currency:'USD' }}</ion-text>
+      <ion-label position="fixed">Coupons</ion-label>
+      <ion-text class="amount-text">{{ transaction.coupons | currency:'USD' }}</ion-text>
     </ion-item>
-
+    
     <ion-item>
-      <ion-label position="stacked">Total</ion-label>
-      <ion-text>{{ transaction.finalTotal | currency:'USD' }}</ion-text>
+      <ion-label position="fixed"  class="bold-text">TOTAL</ion-label>
+      <ion-text class="amount-text">{{ transaction.finalTotal | currency:'USD' }}</ion-text>
     </ion-item>
+    
 
   <!-- Choix de méthode de paiement -->
 <ion-item lines="none" class="centered-item">
   <ion-label class="centered-text" position="stacked">Méthodes de Paiement</ion-label>
 </ion-item>
-    <swiper-container [pagination]="{ clickable: true }" loop="true">
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="6">
+      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('paypal')">
+        <img src="assets/paypal-logo.png" class="payment-logo" alt="PayPal Logo" />
+      </ion-button> -->
+
+<img src="assets/paypal-logo.png" class="payment-logo" alt="PayPal Logo" (click)="selectPaymentMethod('Paypal')" />
+
+    </ion-col>
+    <ion-col size="6">
+      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('credit-card')">
+        <img src="assets/credit-card-logo.png" class="payment-logo" alt="Credit Card Logo" />
+      </ion-button> -->
+
+      <img src="assets/credit-card-logo.png" class="payment-logo" alt="Credit Card Logo"  (click)="selectPaymentMethod('credi-card')" />
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('natcash')">
+        <img src="assets/natcash-logo.png" class="payment-logo" alt="Bank Transfer Logo" />
+      </ion-button> -->
+
+      <img src="assets/natcash-logo.png" class="payment-logo" alt="Bank Transfer Logo" (click)="selectPaymentMethod('natcash')" />
+
+    </ion-col>
+    <ion-col size="6">
+      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('moncash')">
+        <img src="assets/moncash-logo.png" class="payment-logo" alt="MonCASH Logo" />
+      </ion-button> -->
+      <img src="assets/moncash-logo.png" class="payment-logo" alt="MonCASH Logo" (click)="selectPaymentMethod('moncash')" />
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+
+
+    <!-- <swiper-container [pagination]="{ clickable: true }" loop="true">
       <swiper-slide>
         <ion-button expand="block" color="light" (click)="selectPaymentMethod('paypal')">
           <ion-icon class="icon-spacing" name="logo-paypal"></ion-icon> PayPal
@@ -47,7 +91,7 @@
       
       <swiper-slide>
         <ion-button expand="block" color="light" (click)="selectPaymentMethod('bank-transfer')">
-          <ion-icon  class="icon-spacing" name="cash-outline"></ion-icon> Virement bancaire
+          <ion-icon class="icon-spacing" name="swap-horizontal-outline"></ion-icon> Virement bancaire
         </ion-button>
       </swiper-slide>
       <swiper-slide>
@@ -55,16 +99,17 @@
           <ion-icon  class="icon-spacing" name="cash-outline"></ion-icon>MonCASH
         </ion-button>
       </swiper-slide>
-    </swiper-container>
+    </swiper-container> -->
 
         <!-- Ajouter le texte "ou" centré et en gras -->
       <ion-item lines="none" class="ion-text-center">
-        <ion-label class="bold-text">ou</ion-label>
+        <ion-label class="bold-text">-ou-</ion-label>
       </ion-item>
           
    <!-- Option pour envoyer un lien de paiement -->
 <ion-item lines="none">
-  <ion-button class="center-button" expand="full" color="primary" (click)="sendPaymentLink()">Envoyer le Lien de Paiement</ion-button>
+  <ion-button class="center-button" expand="full" color="primary" (click)="sendPaymentLink()">
+    <ion-icon name="link-outline"></ion-icon> Envoyer le Lien de Paiement</ion-button>
 </ion-item>
   </ion-list>
 </ion-content>
