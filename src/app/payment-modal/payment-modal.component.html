@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item  #scrollTarget >
       <ion-label position="fixed">Montant</ion-label>
       <ion-text class="amount-text">{{ transaction.totalPrice | currency:'USD' }}</ion-text>
     </ion-item>
@@ -28,6 +28,29 @@
       <ion-label position="fixed"  class="bold-text">TOTAL</ion-label>
       <ion-text class="amount-text">{{ transaction.finalTotal | currency:'USD' }}</ion-text>
     </ion-item>
+
+
+    <!-- Champs de saisie d'identifiants pour PayPal -->
+<ion-item *ngIf="selectedPaymentMethod === 'paypal'"   >
+  <ion-label position="stacked">PayPal Email</ion-label>
+  <ion-input type="email" placeholder="Entrez votre email PayPal"></ion-input>
+</ion-item>
+
+<!-- Champs de saisie d'identifiants pour carte de crédit -->
+<ion-item *ngIf="selectedPaymentMethod === 'credit-card'"  >
+  <ion-label position="stacked">Numéro de carte</ion-label>
+  <ion-input type="text" placeholder="Entrez le numéro de votre carte"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="selectedPaymentMethod === 'credit-card'">
+  <ion-label position="stacked">Date d'expiration</ion-label>
+  <ion-input type="text" placeholder="MM/AA"></ion-input>
+</ion-item>
+
+<ion-item *ngIf="selectedPaymentMethod === 'credit-card'">
+  <ion-label position="stacked">Code CVV</ion-label>
+  <ion-input type="text" placeholder="CVV"></ion-input>
+</ion-item>
     
 
   <!-- Choix de méthode de paiement -->
@@ -38,36 +61,38 @@
 <ion-grid>
   <ion-row>
     <ion-col size="6">
-      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('paypal')">
+      <ion-button expand="block" color="light" (click)="selectPaymentMethod('paypal')">
         <img src="assets/paypal-logo.png" class="payment-logo" alt="PayPal Logo" />
-      </ion-button> -->
+      </ion-button>
 
-<img src="assets/paypal-logo.png" class="payment-logo" alt="PayPal Logo" (click)="selectPaymentMethod('Paypal')" />
+<!-- <img src="assets/paypal-logo.png" class="payment-logo" alt="PayPal Logo" (click)="selectPaymentMethod('Paypal')" /> -->
 
     </ion-col>
     <ion-col size="6">
-      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('credit-card')">
+      <ion-button expand="block" color="light" (click)="selectPaymentMethod('credit-card')">
         <img src="assets/credit-card-logo.png" class="payment-logo" alt="Credit Card Logo" />
-      </ion-button> -->
+      </ion-button>
 
-      <img src="assets/credit-card-logo.png" class="payment-logo" alt="Credit Card Logo"  (click)="selectPaymentMethod('credi-card')" />
+      <!-- <img src="assets/credit-card-logo.png" class="payment-logo" alt="Credit Card Logo"  (click)="selectPaymentMethod('credi-card')" /> -->
 
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col size="6">
-      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('natcash')">
+      <ion-button expand="block" color="light" (click)="selectPaymentMethod('natcash')">
         <img src="assets/natcash-logo.png" class="payment-logo" alt="Bank Transfer Logo" />
-      </ion-button> -->
+      </ion-button>
 
-      <img src="assets/natcash-logo.png" class="payment-logo" alt="Bank Transfer Logo" (click)="selectPaymentMethod('natcash')" />
+      <!-- <img src="assets/natcash-logo.png" class="payment-logo" alt="Bank Transfer Logo" (click)="selectPaymentMethod('natcash')" /> -->
 
     </ion-col>
     <ion-col size="6">
-      <!-- <ion-button expand="block" color="light" (click)="selectPaymentMethod('moncash')">
+
+      <ion-button expand="block" color="light" (click)="selectPaymentMethod('moncash')">
         <img src="assets/moncash-logo.png" class="payment-logo" alt="MonCASH Logo" />
-      </ion-button> -->
-      <img src="assets/moncash-logo.png" class="payment-logo" alt="MonCASH Logo" (click)="selectPaymentMethod('moncash')" />
+      </ion-button>
+
+      <!-- <img src="assets/moncash-logo.png" class="payment-logo" alt="MonCASH Logo" (click)="selectPaymentMethod('moncash')" /> -->
 
     </ion-col>
   </ion-row>

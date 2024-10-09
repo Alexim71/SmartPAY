@@ -1,4 +1,4 @@
-import { Component, OnInit,Input  } from '@angular/core';
+import { Component, OnInit,Input , ViewChild , ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 
@@ -16,6 +16,9 @@ export class PaymentModalComponent  implements OnInit {
 
   @Input() transaction: any;
   selectedOption: string | null = null;
+  selectedPaymentMethod: string = '';
+
+  @ViewChild('scrollTarget', { static: false }) scrollTarget !: ElementRef;
 
   // Options du slide avec autoplay
   slideOpts = {
@@ -74,6 +77,14 @@ export class PaymentModalComponent  implements OnInit {
     selectPaymentMethod(method: string) {
       console.log('Méthode de paiement sélectionnée :', method);
       // Logique pour traiter la méthode de paiement sélectionnée
+      this.selectedPaymentMethod = method;
+
+       // Attendre que la vue soit mise à jour avant de scroller
+    setTimeout(() => {
+      if (this.scrollTarget) {
+        this.scrollTarget.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
     }
 
      // Choix de l'option
