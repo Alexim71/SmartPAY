@@ -27,7 +27,11 @@ const routes: Routes = [
   {
     path: 'payment-details/:transactionId',
     loadChildren: () => import('./payment-details/payment-details.module').then( m => m.PaymentDetailsPageModule), canActivate: [AuthGuard]
+  },  {
+    path: 'stripe-paiement',
+    loadChildren: () => import('./stripe-paiement/stripe-paiement.module').then( m => m.StripePaiementPageModule)
   },
+
 
 
   

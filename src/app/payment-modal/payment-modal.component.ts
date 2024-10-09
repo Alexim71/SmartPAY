@@ -1,6 +1,7 @@
 import { Component, OnInit,Input , ViewChild , ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
+import { Router } from '@angular/router';
 
 
 
@@ -40,7 +41,7 @@ export class PaymentModalComponent  implements OnInit {
 
 
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController, private router: Router) {}
 
   ngOnInit() {}
 
@@ -78,13 +79,15 @@ export class PaymentModalComponent  implements OnInit {
       console.log('Méthode de paiement sélectionnée :', method);
       // Logique pour traiter la méthode de paiement sélectionnée
       this.selectedPaymentMethod = method;
+      this.router.navigate(['stripe-paiement']);
+      this.modalController.dismiss();
 
        // Attendre que la vue soit mise à jour avant de scroller
-    setTimeout(() => {
-      if (this.scrollTarget) {
-        this.scrollTarget.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
+    // setTimeout(() => {
+    //   if (this.scrollTarget) {
+    //     this.scrollTarget.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //   }
+    // }, 100);
     }
 
      // Choix de l'option

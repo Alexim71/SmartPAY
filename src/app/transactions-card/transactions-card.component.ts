@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component'; // Menu déroulant
 
+
+
 @Component({
   selector: 'app-transactions-card',
   templateUrl: './transactions-card.component.html',

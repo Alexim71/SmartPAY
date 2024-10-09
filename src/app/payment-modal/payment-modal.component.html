@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item  #scrollTarget >
+    <ion-item  >
       <ion-label position="fixed">Montant</ion-label>
       <ion-text class="amount-text">{{ transaction.totalPrice | currency:'USD' }}</ion-text>
     </ion-item>
@@ -30,13 +30,13 @@
     </ion-item>
 
 
-    <!-- Champs de saisie d'identifiants pour PayPal -->
+<!--     
 <ion-item *ngIf="selectedPaymentMethod === 'paypal'"   >
   <ion-label position="stacked">PayPal Email</ion-label>
   <ion-input type="email" placeholder="Entrez votre email PayPal"></ion-input>
 </ion-item>
 
-<!-- Champs de saisie d'identifiants pour carte de crédit -->
+
 <ion-item *ngIf="selectedPaymentMethod === 'credit-card'"  >
   <ion-label position="stacked">Numéro de carte</ion-label>
   <ion-input type="text" placeholder="Entrez le numéro de votre carte"></ion-input>
@@ -51,7 +51,7 @@
   <ion-label position="stacked">Code CVV</ion-label>
   <ion-input type="text" placeholder="CVV"></ion-input>
 </ion-item>
-    
+     -->
 
   <!-- Choix de méthode de paiement -->
 <ion-item lines="none" class="centered-item">
