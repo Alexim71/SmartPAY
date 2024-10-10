@@ -11,7 +11,7 @@ import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component'
 })
 export class TransactionsCardComponent  implements OnInit {
   
-  ngOnInit() {}
+  
 
   searchQuery: string = ''; // Chaîne de recherche pour la recherche d'activités
   selectedFilter: string = ''; // Filtre sélectionné
@@ -25,6 +25,8 @@ export class TransactionsCardComponent  implements OnInit {
 
 
   constructor(private popoverController: PopoverController) { }
+
+  ngOnInit() {}
 
     // Sample transactions data
     transactions: any[]= [
@@ -157,6 +159,7 @@ export class TransactionsCardComponent  implements OnInit {
       this.dropdownVisible = false;
     }
   }
+  
   onItemClick(activity: any) {
     this.clickedItem = activity;
     // Optionnel : Réinitialiser après un certain délai pour que l'animation disparaisse

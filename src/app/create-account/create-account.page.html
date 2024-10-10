@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <!-- Bouton de retour en haut à gauche -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Create Account</ion-title>
     <ion-buttons slot="end">
       <ion-button >
@@ -45,13 +49,14 @@
         <ion-input type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Country</ion-label>
+        <ion-label position="fixed">Country :</ion-label>
         <ion-select [(ngModel)]="selectedCountry" name="selectedCountry" placeholder="Select Country" required>
           <ion-select-option *ngFor="let country of countries" [value]="country">
             {{ country }}
           </ion-select-option>
         </ion-select>
       </ion-item>
+      
 
       <ion-item lines="none" class="terms">
         <ion-checkbox slot="start"></ion-checkbox>

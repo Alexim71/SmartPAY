@@ -59,7 +59,7 @@ export class StripePaiementPage implements OnInit {
         // Happy path
       }
     } catch (error) {
-      console.log(error);
+      console.log( 'ERROR ALEXIMA'+ error);
     }
   }
 

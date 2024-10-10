@@ -4,6 +4,8 @@ import { AlertController, ModalController  } from '@ionic/angular';
 import { PaymentModalComponent } from '../payment-modal/payment-modal.component';
 import { PopoverController } from '@ionic/angular';
 import { MoreOptionsComponent } from '../more-options/more-options.component';
+import {MoreOptionsPaymentComponent} from '../more-options-payment/more-options-payment.component'
+import {DropdownMenuPaiementComponent} from '../dropdown-menu-paiement/dropdown-menu-paiement.component'
 import { DropdownMenuComponent } from '../dropdown-menu/dropdown-menu.component'; // Menu déroulant
 
 
@@ -16,7 +18,7 @@ export class PaymentDetailsPage implements OnInit {
   moreOptionVisible: boolean = false;
   transactionId: number = 0;
   // transaction: any;
-  transactions: any[] = [];
+  // transactions: any[] = [];
 
   searchQuery: string = ''; // Chaîne de recherche pour la recherche d'activités
   selectedFilter: string = ''; // Filtre sélectionné
@@ -35,9 +37,9 @@ export class PaymentDetailsPage implements OnInit {
     // Récupérer l'ID de la transaction à partir de l'URL
     this.transactionId = +this.route.snapshot.paramMap.get('transactionId')!;
 
-
+  }
      // Exemple de données fictives pour les transactions
-     this.transactions = [
+     transactions: any[] = [
       {
         id: 1,
         quantity: 2,
@@ -69,7 +71,7 @@ export class PaymentDetailsPage implements OnInit {
     // Charger les détails de la transaction à partir de cet ID...
 
     
-  }
+  
 
 
   filteredActivities: any[] = [...this.transactions];
@@ -77,6 +79,27 @@ export class PaymentDetailsPage implements OnInit {
    // Méthode pour activer/désactiver les filtres (à implémenter)
    toggleFilter() {
     this.filterActivities();  // Ajoutez la logique de filtre ici si nécessaire
+  }
+
+  async presentPopover(event: Event, activity: any) {
+    const popover = await this.popoverController.create({
+      component: DropdownMenuPaiementComponent, // Le composant pour le menu
+      event: event,
+      translucent: false,
+      componentProps: { activity: activity }, // Passer l'activity au menu déroulant
+      cssClass: 'custom-popover-position', // Classe personnalisée pour le style
+    });
+    console.log('MORE clicked')
+    return await popover.present();
+  }
+
+  async presentPopover2(ev: any) {
+    const popover = await this.popoverController.create({
+      component: MoreOptionsPaymentComponent, // Le menu 'More' en tant que composant
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
 
@@ -94,6 +117,12 @@ async performPayment(transaction: any) {
   await modal.present();
 }
 
+// Method to handle 'more' button click for each transaction item
+openTransactionOptions(transaction: any) {
+  // Implement additional options for each transaction (e.g., view details, edit, delete)
+  console.log('More options for transaction:', transaction.transactionId);
+}
+
 // Méthode pour ouvrir le menu 'More' avec Popover
 // async presentPopover(ev: any) {
 //   const popover = await this.popoverController.create({
@@ -104,17 +133,7 @@ async performPayment(transaction: any) {
 //   return await popover.present();
 // }
 
-async presentPopover(event: Event, activity: any) {
-  const popover = await this.popoverController.create({
-    component: DropdownMenuComponent, // Le composant pour le menu
-    event: event,
-    translucent: false,
-    componentProps: { activity: activity }, // Passer l'activity au menu déroulant
-    cssClass: 'custom-popover-position', // Classe personnalisée pour le style
-  });
-  console.log('MORE clicked')
-  return await popover.present();
-}
+
 
 showMoreOptionMenu(event: MouseEvent, activity: any) {
   this.moreOptionVisible = true;
@@ -162,8 +181,9 @@ filterActivities() {
   // Filtrer par recherche d'activité
   let filtered = this.transactions.filter(activity => {
     return (
-      activity.article.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-      activity.transactionId.toLowerCase().includes(this.searchQuery.toLowerCase())
+      activity.article.toLowerCase().includes(this.searchQuery.toLowerCase()) 
+
+      // ||activity.unitPrice.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   });
 
@@ -215,6 +235,20 @@ toggleSort() {
     this.sortBy = 'date';
   }
   this.sortActivities(); // Appliquer le tri
+}
+
+onItemClick(activity: any) {
+  this.clickedItem = activity;
+  // Optionnel : Réinitialiser après un certain délai pour que l'animation disparaisse
+  setTimeout(() => {
+    this.clickedItem = null;
+  }, 300); // la même durée que la transition
+}
+
+onActivityClick(activity : any) {
+  console.log('Activity clicked:', activity);
+  console.log('PAYMENT clicked')
+  // Additional logic for activity click
 }
 
 

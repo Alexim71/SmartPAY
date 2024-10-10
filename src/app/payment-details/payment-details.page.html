@@ -1,6 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Fiche(s) de paiement</ion-title>
+    <!-- Bouton de retour en haut à gauche -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Titre centré -->
+    <ion-title  class="title-text">Payment ticket <ion-icon name="receipt-outline"></ion-icon>
+
+    </ion-title>
+
+    <!-- Icône ellipsis-vertical à droite -->
+    <ion-buttons slot="end">
+      <ion-button (click)="presentPopover2($event); $event.stopPropagation();">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -47,12 +62,12 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-md="6" *ngFor="let transaction of transactions">
+      <ion-col size="12" size-md="6" *ngFor="let transaction of filteredActivities">
         <ion-card class="transaction-card">
           <ion-card-header>
             <ion-card-title class="custom-title">
               <ion-icon name="file-tray-outline"></ion-icon>
-              <span class="title-text">Détails transaction</span>
+              <span class="title-text">Details transaction</span>
               <ion-icon name="ellipsis-vertical" (click)="presentPopover($event, transaction); $event.stopPropagation();"></ion-icon>
             </ion-card-title>
           </ion-card-header>

@@ -52,4 +52,14 @@ ion-button {
   --background: #3b5998; /* Couleur de fond pour le bouton Facebook */
   --color: #fff; /* Couleur du texte pour le bouton Facebook */
 }
+ion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-select {
+  width: 60%; /* Ajustez cette valeur en fonction de la largeur souhaitée */
+}
+
 

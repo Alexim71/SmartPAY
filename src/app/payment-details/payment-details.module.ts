@@ -8,6 +8,8 @@ import { PaymentDetailsPageRoutingModule } from './payment-details-routing.modul
 
 import { PaymentDetailsPage } from './payment-details.page';
 import {PaymentModalComponent} from '../payment-modal/payment-modal.component'
+import {DropdownMenuPaiementComponent} from '../dropdown-menu-paiement/dropdown-menu-paiement.component'
+import {MoreOptionsPaymentComponent} from '../more-options-payment/more-options-payment.component'
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import {PaymentModalComponent} from '../payment-modal/payment-modal.component'
     IonicModule,
     PaymentDetailsPageRoutingModule
   ],
-  declarations: [PaymentDetailsPage, PaymentModalComponent],
+  declarations: [PaymentDetailsPage, PaymentModalComponent, MoreOptionsPaymentComponent, DropdownMenuPaiementComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PaymentDetailsPageModule {}
