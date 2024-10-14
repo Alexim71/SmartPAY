@@ -6,14 +6,14 @@
     </ion-buttons>
 
     <!-- Titre centré -->
-    <ion-title  class="title-text">Payment ticket <ion-icon name="receipt-outline"></ion-icon>
+    <ion-title  class="title-text">Payment ticket <ion-icon style="color: gold;"  name="receipt-outline"></ion-icon>
 
     </ion-title>
 
     <!-- Icône ellipsis-vertical à droite -->
     <ion-buttons slot="end">
       <ion-button (click)="presentPopover2($event); $event.stopPropagation();">
-        <ion-icon name="ellipsis-vertical"></ion-icon>
+        <ion-icon name="ellipsis-vertical" ></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -34,9 +34,9 @@
         </ion-select>
       </ion-item>
 
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" style="color: gold;" >
         <ion-button fill="clear" (click)="toggleFilter()">
-          <ion-icon name="filter-outline"></ion-icon>
+          <ion-icon name="filter-outline" style="color: gold;" ></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
@@ -44,7 +44,7 @@
 
      <!-- Barre de recherche -->
      <ion-item class="search-bar">
-      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-icon name="search-outline" style="color: greenyellow;"  slot="start"></ion-icon>
       <ion-input placeholder="Search by transaction type/name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
     </ion-item>
 
@@ -66,7 +66,7 @@
         <ion-card class="transaction-card">
           <ion-card-header>
             <ion-card-title class="custom-title">
-              <ion-icon name="file-tray-outline"></ion-icon>
+              <ion-icon name="file-tray-outline" style="color: gold;" ></ion-icon>
               <span class="title-text">Details transaction</span>
               <ion-icon name="ellipsis-vertical" (click)="presentPopover($event, transaction); $event.stopPropagation();"></ion-icon>
             </ion-card-title>

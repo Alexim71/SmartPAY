@@ -68,7 +68,72 @@
     margin-left: auto; /* Aligne le texte à droite */
     text-align: right;
   }
+
+  ion-modal {
+  --border-radius: 20px; /* Arrondir tous les coins du modal */
+}
+
+ion-header,
+ion-content {
+  border-radius: 20px;
+}
+
+ion-header {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+ion-content {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
   
+
+ion-modal {
+  --border-radius: 20px;
+}
+
+ion-header,
+ion-content {
+  border-radius: 20px;
+}
+
+ion-header {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+ion-content {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Optionnel : ajuster d'autres styles pour améliorer le design */
+.amount-text {
+  font-weight: bold;
+  color: #4caf50; /* Couleur pour les montants */
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-item {
+  text-align: center;
+}
+
+.centered-text {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
   
   
   

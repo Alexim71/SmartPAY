@@ -1,11 +1,17 @@
-<ion-card>
+<ion-card class="transactions-card">
   <ion-card-header>
-    <ion-card-title style="color: #3498db; font-weight: bold;">
-      Transactions
-      <!-- <ion-button class="floating-btn" >
-        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
-      </ion-button> -->
+    
+    <ion-card-title style="color: #3498db; display: flex; align-items: center; justify-content: space-between;">
+      <!-- Icône calendrier -->
+      <ion-icon name="swap-horizontal-outline" style="color: gold; margin-right: 10px;"></ion-icon>
+      
+      <!-- Texte des Transactions -->
+      <span style="flex-grow: 1; text-align: center;">Transactions</span>
+      
+      <!-- Icône menu vertical (ellipsis) -->
+      <ion-icon name="ellipsis-vertical" style=" margin-left: 10px;"></ion-icon>
     </ion-card-title>
+    
   </ion-card-header>
 
   <ion-card-content>
@@ -25,7 +31,7 @@
 
         <ion-buttons slot="end">
           <ion-button fill="clear" (click)="toggleFilter()">
-            <ion-icon name="filter-outline"></ion-icon>
+            <ion-icon name="filter-outline" style="color: gold;"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -33,7 +39,7 @@
 
     <!-- Barre de recherche -->
     <ion-item class="search-bar">
-      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-icon name="search-outline" slot="start" style="color: greenyellow ;"></ion-icon>
       <ion-input placeholder="Search by transaction type/name" [(ngModel)]="searchQuery" (ionInput)="filterActivities()"></ion-input>
     </ion-item>
 
